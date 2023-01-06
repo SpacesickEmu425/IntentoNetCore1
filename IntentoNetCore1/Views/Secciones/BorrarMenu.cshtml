@@ -1,0 +1,85 @@
+﻿@model IntentoNetCore1.Models.DB.Menus
+@*Se basa en el modelo hecho en la parte de Models para crear un objeto con esos "atributos"*@
+@{
+		ViewData["Title"] = "Borrar menú";
+}
+<!--Debe marcar una alerta de que se va a borrar el menú-->
+<form id="ListaSubmenus" class="new-page" action="BorrMenu" method="post">
+		<h2>Borrar menú</h2>
+		<hr />
+		<div class="sect">
+				<div class="info">
+						<label>Folio Automático de Esta Sección (único):</label>
+						<input type="text" readonly class="textito" id="cla_menu" name="cla_menu" value="@Model.cla_menu" asp-for="cla_menu" />
+						<!--Tanto este valor como los demás deben ser tomados del registro del menú a modificar-->
+				</div>
+				<div class="info">
+						<label>Orden que se presenta este contenido dentro de la página</label>
+						<input type="text" class="textito" id="orden" name="orden" value="@Model.orden" asp-for="orden" required />
+				</div>
+				<div class="info">
+						<label>Nombre del menú</label>
+						<input type="text" class="textito" id="Menu" name="Menu" value="@Model.Menu" asp-for="Menu" />
+				</div>
+				<div class="info">
+						<label>Descripción larga (Opcional)</label>
+						<input type="text" class="textito" id="Desc_Larga" name="Desc_Larga" value="@Model.Desc_Larga" asp-for="Desc_Larga" />
+				</div>
+				<div class="info">
+						<label>Link</label>
+						<input type="text" class="textito" id="link" name="link" value="@Model.link" asp-for="link"/>
+				</div>
+				<div class="info">
+						<label>Tipo Menú</label>
+						<select name="tipomenu" id="tipomenu" class="textito" asp-for="tipomenu" required>
+								<!--Por definir cómo añadir el @Model.tipomenu-->
+								@if (Model.tipomenu == 1)
+								{
+										<option value="1" selected>Principal Superior</option>
+								}
+								else
+								{
+										<option value="1">Principal Superior</option>
+								}
+								@if (Model.tipomenu == 2)
+								{
+										<option value="2" selected>Secundario Principal</option>
+								}
+								else
+								{
+										<option value="2">Secundario Principal</option>
+								}
+								@if (Model.tipomenu == 3)
+								{
+										<option value="3" selected>Menu Temporal</option>
+								}
+								else
+								{
+										<option value="3">Menu Temporal</option>
+								}
+						</select>
+				</div>
+				<div class="info">
+						<label>Menu ACTIVO</label>
+						<select name="activo" id="activo" class="textito" asp-for="activo">
+								@if (Model.activo == "SI")
+								{
+										<option value="SI" selected>SI</option>
+								}
+								else
+								{
+										<option value="SI">SI</option>
+								}
+								@if (Model.activo == "NO")
+								{
+										<option value="NO" selected>NO</option>
+								}
+								else
+								{
+										<option value="NO">NO</option>
+								}
+						</select>
+				</div>
+				<input type="submit" value="Borrar Menú" name="Borrar" class="btn add-new-page btn-dark">
+		</div>
+</form>

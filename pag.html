@@ -1,0 +1,67 @@
+<form class="new-page">
+		<h2>Modificar Página</h2>
+		<hr>
+		<!--Toda la info debe ser tomada de la tabla-->
+		<div class="sect" id="titles">
+				<div class="info">
+						<label>Título que aparecerá en el browser</label>
+						<input class="textito" type="text" name="tab-name-input">
+				</div>
+				<div class="info">
+						<label>Título o encabezado de la pagina</label>
+						<input class="textito" type="text" name="title-name-input">
+				</div>
+				<div class="info">
+						<label>A qué MENÚ PRINCIPAL al que pertenece</label>
+						<select class="textito" name="menus">
+								<option value="1" selected="">NOTICIAS</option>
+								<option value="2">SERVICIOS DIGITALES</option>
+								<option value="3">NUESTRA ORGANIZACIÓN</option>
+								<option value="4">CLASIFICADOS</option>
+								<option value="5">PROMOCIONES Y DESCUENTOS</option>
+								<option value="49">Otros Menus</option>
+						</select>
+				</div>
+				<div class="info">
+						<label>A que sección de MENÚ pertenece la página</label>
+						<select name="seccion" class="textito">
+								<option value="65">NOTA INFORMATIVA</option>
+								<option value="6">BOLETINES</option>
+								<option value="7">AGENDA</option>
+								<option value="8">SÍNTESIS</option>
+								<option value="9">BOLETINES INTERNOS</option>
+						</select>
+				</div>
+		</div>
+		<div class="sect" id="dates">
+				<div class="info">
+						<label>Esta en Publicación</label>
+						<select name="publicar" class="textito">
+								<option value="SI" selected="">SI</option>
+								<option value="NO">NO</option>
+						</select>
+				</div>
+				<div class="info">
+						<label>Fecha de Publicación	</label>
+						<input type="date" name="fpublicacion" class="textito"
+									 placeholder="DD/MM/AAAA">
+				</div>
+				<div class="info">
+						<label>Hora de Publicación</label>
+						<input type="time" name="hpublicacion" class="textito" placeholder="09:00">
+				</div>
+				<div class="info">
+						<label>Fecha de actualización</label>
+						<input type="date" name="factualizacion" placeholder="DD/MM/AAAA" class="textito">
+				</div>
+				<div class="info">
+						<label>Fuente de Información</label>
+						<input type="text" name="fuentepublica" class="textito">
+				</div>
+		</div>
+		<a href="index.html">
+				<button type="submit" class="btn add-new-page btn-dark">
+						Modificar página
+				</button>
+		</a>
+</form>
