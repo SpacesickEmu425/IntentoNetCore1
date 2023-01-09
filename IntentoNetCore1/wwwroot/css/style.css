@@ -138,7 +138,8 @@ h2 {
     width: 13rem;
     padding: .5rem;
     user-select: none;
-    border-radius: 5px
+    border-radius: 5px;
+    outline:none;
 }
 
 .btn-darku {
@@ -190,7 +191,6 @@ h2 {
         background-color: var(--bg-color-forms);
         margin-bottom: 0px !important;
         width: -webkit-fill-available;
-        border:none !important;
     }
 
         .credentials .textito:hover {
