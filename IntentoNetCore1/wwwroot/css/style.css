@@ -14,6 +14,16 @@
     --bg-color-btn-login-active: #cfe2f3;
 }
 
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
 .contenido {
     display: inline-block;
 }
@@ -24,12 +34,21 @@
     float: left;
 }
 
+#navbarSupportedContent {
+    height:inherit !important;
+}
+
 .logo-ags {
     max-width: 180px;
 }
 
 .CerrarSesion {
     text-align: center;
+    height: inherit;
+    vertical-align: middle;
+    display: flex !important;
+    align-content: center;
+    align-items: center;
 }
 
 .nav-link {
@@ -44,12 +63,18 @@
     margin-bottom: 3px !important;
 }
 
+.navbar {
+    padding: 0rem !important; 
+    height:70px;
+}
+
 * {
     font-family: sans-serif;
 }
 
 body {
     margin: 0px;
+    height:100%
     /*background-image: url(https://www.ags.gob.mx/sitio_imgs/home/bg_cam.jpg );*/
 }
 
@@ -165,6 +190,7 @@ h2 {
         background-color: var(--bg-color-forms);
         margin-bottom: 0px !important;
         width: -webkit-fill-available;
+        border:none !important;
     }
 
         .credentials .textito:hover {
