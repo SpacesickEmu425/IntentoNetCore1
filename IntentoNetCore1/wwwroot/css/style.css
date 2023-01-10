@@ -172,52 +172,67 @@ h2 {
     width: fit-content;
 }
 
-    .login .btn-darku:hover {
-        background-color: var(--bg-color-btn-login-active);
-        color: var(--lett-color-btn-active);
-        cursor: pointer;
-    }
-
-.credentials {
-    display: flex;
-    flex-direction: column;
-    width: -webkit-fill-available;
-    align-items: center;
+.login .btn-darku:hover {
+    background-color: var(--bg-color-btn-login-active);
+    color: var(--lett-color-btn-active);
+    cursor: pointer;
 }
 
-    .credentials .textito {
-        border-radius: 0%;
-        border: 0px !important;
-        background-color: var(--bg-color-forms);
-        margin-bottom: 0px !important;
-        width: -webkit-fill-available;
+.credentials {
+display: flex;
+flex-direction: column;
+width: -webkit-fill-available;
+align-items: center;
+}
+
+.credentials .textito {
+    border-radius: 0%;
+    border: 0px !important;
+    background-color: var(--bg-color-forms);
+    margin-bottom: 0px !important;
+    width: -webkit-fill-available;
+}
+
+    .credentials .textito:hover {
+        border-color: var(--orage-test);
+        transition: ease-in-out;
+        transition-duration: 3s,5s;
     }
 
-        .credentials .textito:hover {
-            border-color: var(--orage-test);
-            transition: ease-in-out;
-            transition-duration: 3s,5s;
-        }
-
-        .credentials .textito:focus {
-            border: transparent;
-            background-image: linear-gradient(to top, blue 2px, var(--bg-color-forms) 2px);
-        }
-
-    .credentials div {
-        display: flex;
-        align-items: center;
-        padding-top: 1rem;
-        width: -webkit-fill-available;
-        justify-content: center;
+    .credentials .textito:focus {
+        border: transparent;
+        background-image: linear-gradient(to top, blue 2px, var(--bg-color-forms) 2px);
     }
 
-    .credentials span {
-        color: #5b5b5b;
-    }
+.credentials div {
+    display: flex;
+    align-items: center;
+    padding-top: 1rem;
+    width: -webkit-fill-available;
+    justify-content: center;
+}
+
+.credentials span {
+    color: #5b5b5b;
+}
+
+/*PÁGINA BIENVENIDA*/
+.text-center {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.columns {
+    display: flex;
+    justify-content: space-around;
+}
+
+.columns img {
+    height:30rem;
+}
 
 /* PÁGINA NUEVA, MODIFICAR Y BORRAR */
-
 .new-page {
     text-align: left;
     background-color: var(--bg-color-forms);
