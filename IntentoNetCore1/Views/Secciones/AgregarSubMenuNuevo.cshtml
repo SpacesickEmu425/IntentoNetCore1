@@ -1,0 +1,66 @@
+﻿@model IntentoNetCore1.Models.DB.MenuNuevo
+@*Se basa en el modelo hecho en la parte de Models para crear un objeto con esos "atributos"*@
+@{
+		ViewData["Title"] = "Agregar submenú";
+}
+<!--Debe marcar una alerta de que se va a borrar el menú-->
+@*<script>
+				var idmax = @Model.menus.Count();
+				var suma = parseInt(idmax) + 1;
+
+				document.getElementById('cla_menu').value = suma;
+
+		</script>*@
+@{
+		var maximo = (from li in Model.menus select li.cla_menu).Max();
+		maximo = (int)maximo + 1;
+}
+
+<form class="new-page" action="AgrSubMenu" method="post">
+		<h2> Agregar Submenú nuevo</h2>
+		<hr />
+		<div class="sect">
+				<div class="info">
+						<label>Folio Automático de Esta Sección (único):</label>
+						<input type="text" readonly class="textito" value="@maximo" id="cla_menu" name="cla_menu" asp-for="menu.cla_menu" />
+						<!--Tanto este valor como los demás deben ser tomados del registro del menú a modificar-->
+				</div>
+				<div class="info">
+						<label>Menú padre:</label>
+						<input type="text" readonly class="textito" value="@Model.menu.cla_papa" id="cla_papa" name="cla_papa" asp-for="menu.cla_papa" />
+						<!--Tanto este valor como los demás deben ser tomados del registro del menú a modificar-->
+				</div>
+				<div class="info">
+						<label>Orden que se presenta este contenido dentro de la página</label>
+						<input type="text" class="textito" id="orden" name="orden" asp-for="menu.orden" required />
+				</div>
+				<div class="info">
+						<label>Nombre del menú</label>
+						<input type="text" class="textito" id="Menu" name="Menu" asp-for="menu.Menu" />
+				</div>
+				<div class="info">
+						<label>Descripción larga (Opcional)</label>
+						<input type="text" class="textito" id="Desc_Larga" name="Desc_Larga" asp-for="menu.Desc_Larga" />
+				</div>
+				<div class="info">
+						<label>Link</label>
+						<input type="text" class="textito" id="link" name="link" asp-for="menu.link" />
+				</div>
+				<div class="info">
+						<label>Tipo Menú</label>
+						<select name="tipomenu" id="tipomenu" class="textito" asp-for="menu.tipomenu" required>
+								<option value="1">Principal Superior</option>
+								<option value="2">Secundario Principal</option>
+								<option value="3">Menu Temporal</option>
+						</select>
+				</div>
+				<div class="info">
+						<label>Menu ACTIVO</label>
+						<select name="activo" id="activo" class="textito" asp-for="menu.activo" required>
+								<option value="SI">SI</option>
+								<option value="NO">NO</option>
+						</select>
+				</div>
+				<input type="submit" value="Agregar menú raíz" name="AgregarMenu" class="btn add-new-page btn-dark">
+		</div>
+</form>

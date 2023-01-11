@@ -1,0 +1,31 @@
+﻿@model IntentoNetCore1.Models.DB.Contenido
+@*
+		Se basa en el modelo hecho en la parte de Models para crear un objeto con esos "atributos"
+*@
+@{
+		ViewData["Title"] = "Borrar contenido";
+}
+<h4 class="alert bg-warning">PRECAUCIÓN, ESTÁ A PUNTO DE BORRAR ESTA SECCIÓN DE CONTENIDO</h4>
+<form class="new-page" action="BorrContenido" method="post">
+		<h2>Borrar Sección de contenido nueva</h2>
+		<hr />
+		<div class="sect">
+				<div class="info">
+						<label>Folio Automático de Esta Sección (único):</label>
+						<input disabled readonly type="text" class="textito" value="@Model.ID_Contenido" /><!--Tanto este valor como los demás deben ser tomados del registro del menú a modificar-->
+						<input display="none" readonly type="text" class="textito" name="ID_Contenido" id="ID_Contenido" asp-for="ID_Contenido" value="@Model.ID_Contenido" /><!--Tanto este valor como los demás deben ser tomados del registro del menú a modificar-->
+				</div>
+				<div class="info">
+						<label>Orden que se presenta este contenido dentro de la página</label>
+						<input type="text" class="textito" name="orden" value=@Model.Orden />
+				</div>
+				<div class="info">
+						<label>Título del contenido</label>
+						<input type="text" class="textito" name="nombre_menu" value=@Model.Titulo />
+				</div>
+				<div class="info">
+						<textarea class="textito" id="contenido" name="Contenido" placeholder="Agregue el contenido aquí">@Model.contenido</textarea>
+				</div>
+				<input type="submit" value="Borrar Sección de contenido" name="Borrar" class="btn btn-dark">
+		</div>
+</form>

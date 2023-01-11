@@ -1,0 +1,38 @@
+﻿@model IntentoNetCore1.Models.DB.ContenidoNuevo
+
+@{
+		ViewData["Title"] = "Agregar contenido a página nueva";
+}
+
+@*@{
+		var maximo = (from li in Model.contenidos select li.cla_sec).Max();
+		maximo = (int)maximo + 1;
+}*@
+
+<form class="new-page" action="AgrContenido" method="post">
+		<h2>Agregar Sección de contenido nueva a @ViewBag.Pagina.TituloBrowser</h2>
+		<hr />
+		<div class="sect">
+				<div class="info">
+						<label>Folio Automático de Esta Sección (único):</label>
+						<input type="text" class="textito" value="@ViewBag.ClavSecc" disabled />
+						<input type="text"  name="cla_sec" id="cla_sec" asp-for="@Model.contenido.cla_sec" value="@ViewBag.ClavSecc" display="none"/>
+				</div>
+				<div class="info">
+						<label>Clave de la página a la que pertenece:</label>
+						<input type="text" class="textito" name="cla_pag" id="cla_pag" asp-for="@Model.contenido.Cla_pag" readonly />
+				</div>
+				<div class="info">
+						<label>Orden que se presenta este contenido dentro de la página</label>
+						<input type="text" class="textito" name="Orden" id="Orden" asp-for="@Model.contenido.Orden" />
+				</div>
+				<div class="info">
+						<label>Título del contenido</label>
+						<input type="text" class="textito" name="Titulo" id="Titulo" asp-for="@Model.contenido.Titulo" />
+				</div>
+				<div class="info">
+						<textarea class="textito" id="contenido" name="contenido" placeholder="Agregue el contenido aquí" asp-for="@Model.contenido.contenido"></textarea>
+				</div>
+				<input type="submit" value="Agregar Sección de contenido Nueva" name="Agregar" class="btn btn-dark">
+		</div>
+</form>

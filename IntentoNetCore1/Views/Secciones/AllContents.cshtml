@@ -1,0 +1,71 @@
+﻿@model IEnumerable<IntentoNetCore1.Models.DB.Contenido>
+@*Se basa en el modelo hecho en la parte de Models
+		para crear un objeto con esos "atributos".
+		La expresión IEnumerable se usa para listar
+		varios "objetos" basados en ése modelo*@
+
+
+@{
+		ViewData["Title"] = "Administrador de Menús";
+}
+<form class="new-page">
+		<h2>Submenús</h2>
+		<hr>
+		<div>
+				<table id="tablaa" class="table table-striped table-bordered">
+						<thead>
+								<tr>
+										<td>
+												Id
+										</td>
+										<td>
+												Clave pagina
+										</td>
+										<td>
+												Titulo
+										</td>
+										<td>
+												Contenido
+										</td>
+										<td>
+												Clave de seccion
+										</td>
+								</tr>
+						</thead>
+						<tbody>
+								<!--Recorre el modelo de la clase menus creada en el controldador-->
+								@foreach (var item in Model)
+								{
+								<tr>
+										<td>
+												@item.ID_Contenido
+										</td>
+										<td>
+												@item.Cla_pag
+										</td>
+										<td>
+												@item.Titulo
+										</td>
+										<td>
+												@item.contenido
+										</td>
+										<td>
+												@item.cla_sec
+										</td>
+								</tr>
+								}
+						</tbody>
+				</table>
+		</div>
+		<!--Esto hace que no cargue toda la lista de golpe, carga los que se marque en el controlador-->
+		<div class="row">
+				@for (var i = 0; i <= ViewBag.total; i++)
+				{
+						int i2 = i + 1;
+						<div class="col-1">
+								<a href="@Url.Action("AllContents", "Secciones", new { option = i})" class="form-control btn btn-primary">@i2</a>
+
+						</div>
+				}
+		</div>
+</form>
