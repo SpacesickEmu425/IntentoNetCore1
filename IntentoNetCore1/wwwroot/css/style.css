@@ -35,7 +35,7 @@
 }
 
 #navbarSupportedContent {
-    height:inherit !important;
+    height: inherit !important;
 }
 
 .logo-ags {
@@ -53,6 +53,7 @@
 
 .nav-link {
     text-align: center;
+    background-color: var(--bg-color-nav) !important;
 }
 
 .buscar {
@@ -63,10 +64,19 @@
     margin-bottom: 3px !important;
 }
 
-.navbar {
-    padding: 0rem !important; 
-    height:70px;
+.btn-danger {
+    display: flex;
+    justify-content: center;
 }
+
+.navbar {
+    padding: 0rem !important;
+    height: 70px;
+}
+
+    .navbar .navbar-expand-lg .navbar-light .bg-light {
+        background-color: var(--bg-color-nav);
+    }
 
 * {
     font-family: sans-serif;
@@ -74,7 +84,7 @@
 
 body {
     margin: 0px;
-    height:100%
+    height: 100%
     /*background-image: url(https://www.ags.gob.mx/sitio_imgs/home/bg_cam.jpg );*/
 }
 
@@ -139,7 +149,7 @@ h2 {
     padding: .5rem;
     user-select: none;
     border-radius: 5px;
-    outline:none;
+    outline: none;
 }
 
 .btn-darku {
@@ -172,49 +182,49 @@ h2 {
     width: fit-content;
 }
 
-.login .btn-darku:hover {
-    background-color: var(--bg-color-btn-login-active);
-    color: var(--lett-color-btn-active);
-    cursor: pointer;
-}
+    .login .btn-darku:hover {
+        background-color: var(--bg-color-btn-login-active);
+        color: var(--lett-color-btn-active);
+        cursor: pointer;
+    }
 
 .credentials {
-display: flex;
-flex-direction: column;
-width: -webkit-fill-available;
-align-items: center;
-}
-
-.credentials .textito {
-    border-radius: 0%;
-    border: 0px !important;
-    background-color: var(--bg-color-forms);
-    margin-bottom: 0px !important;
-    width: -webkit-fill-available;
-}
-
-    .credentials .textito:hover {
-        border-color: var(--orage-test);
-        transition: ease-in-out;
-        transition-duration: 3s,5s;
-    }
-
-    .credentials .textito:focus {
-        border: transparent;
-        background-image: linear-gradient(to top, blue 2px, var(--bg-color-forms) 2px);
-    }
-
-.credentials div {
     display: flex;
-    align-items: center;
-    padding-top: 1rem;
+    flex-direction: column;
     width: -webkit-fill-available;
-    justify-content: center;
+    align-items: center;
 }
 
-.credentials span {
-    color: #5b5b5b;
-}
+    .credentials .textito {
+        border-radius: 0%;
+        border: 0px !important;
+        background-color: var(--bg-color-forms);
+        margin-bottom: 0px !important;
+        width: -webkit-fill-available;
+    }
+
+        .credentials .textito:hover {
+            border-color: var(--orage-test);
+            transition: ease-in-out;
+            transition-duration: 3s,5s;
+        }
+
+        .credentials .textito:focus {
+            border: transparent;
+            background-image: linear-gradient(to top, blue 2px, var(--bg-color-forms) 2px);
+        }
+
+    .credentials div {
+        display: flex;
+        align-items: center;
+        padding-top: 1rem;
+        width: -webkit-fill-available;
+        justify-content: center;
+    }
+
+    .credentials span {
+        color: #5b5b5b;
+    }
 
 /*PÁGINA BIENVENIDA*/
 .text-center {
@@ -228,9 +238,9 @@ align-items: center;
     justify-content: space-around;
 }
 
-.columns img {
-    height:30rem;
-}
+    .columns img {
+        height: 30rem;
+    }
 
 /* PÁGINA NUEVA, MODIFICAR Y BORRAR */
 .new-page {
@@ -239,7 +249,7 @@ align-items: center;
     margin: auto;
     padding: 2rem;
     border-radius: 5px;
-    box-shadow: 7px 13px 37px #000;
+    /*box-shadow: 7px 13px 37px #000;*/
     margin-bottom: 3rem;
 }
 
