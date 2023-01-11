@@ -58,7 +58,6 @@
 
 .nav-link {
 		text-align: center;
-		background-color: var(--bg-color-nav) !important;
 }
 
 .buscar {
@@ -253,8 +252,20 @@ h2 {
 		}
 
 		.columns img {
+				height:100%;
 				width: 720px;
 		}
+
+		.nav-link {
+				background-color: var(--bg-color-nav);
+		}
+
+		.btn-danger {
+				color: #fff !important;
+				background-color: #dc3545 !important;
+				border-color: #dc3545 !important;
+		}
+
 }
 
 /* PÁGINA NUEVA, MODIFICAR Y BORRAR */
