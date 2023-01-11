@@ -1,351 +1,366 @@
 ﻿:root {
-    --bg-color-nav: #ededf7;
-    --lett-color-nav: #000;
-    --bg-color-btn: #000;
-    --orage-test: orange;
-    --lett-color-btn: #fff;
-    --bg-color-btn-active: #fff;
-    --lett-color-btn-active: #000;
-    --bg-color-forms: #ededf7;
-    --bg-color-login-top: #ee154e;
-    --bg-color-login-bottom: #ac0236;
-    --lett-color-alert: #ff0000;
-    --bg-color-btn-login: #163072;
-    --bg-color-btn-login-active: #cfe2f3;
+		--bg-color-nav: #ededf7;
+		--lett-color-nav: #000;
+		--bg-color-btn: #000;
+		--orage-test: orange;
+		--lett-color-btn: #fff;
+		--bg-color-btn-active: #fff;
+		--lett-color-btn-active: #000;
+		--bg-color-forms: #ededf7;
+		--bg-color-login-top: #ee154e;
+		--bg-color-login-bottom: #ac0236;
+		--lett-color-alert: #ff0000;
+		--bg-color-btn-login: #163072;
+		--bg-color-btn-login-active: #cfe2f3;
 }
 
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
+		box-sizing: border-box;
+		padding: 0;
+		margin: 0;
+		font-family: 'Montserrat', sans-serif;
 }
 
 .contenido {
-    display: inline-block;
+		display: inline-block;
 }
 /*BARRA DE NAVEGACIÓN*/
 .logo {
-    position: relative;
-    z-index: 100;
-    float: left;
+		position: relative;
+		z-index: 100;
+		float: left;
 }
 
 #navbarSupportedContent {
-    height: inherit !important;
-}
-
-.logo-ags {
-    max-width: 180px;
-}
-
-.CerrarSesion {
-    text-align: center;
-    height: inherit;
-    vertical-align: middle;
-    display: flex !important;
-    align-content: center;
-    align-items: center;
-}
-
-.nav-link {
-    text-align: center;
-    background-color: var(--bg-color-nav) !important;
-}
-
-.buscar {
-    max-width: 25rem;
-}
-
-.btn {
-    margin-bottom: 3px !important;
-}
-
-.btn-danger {
-    display: flex;
-    justify-content: center;
+		height: inherit !important;
 }
 
 .navbar {
-    padding: 0rem !important;
-    height: 70px;
+		background-color: var(--bg-color-nav) !important;
 }
 
-    .navbar .navbar-expand-lg .navbar-light .bg-light {
-        background-color: var(--bg-color-nav);
-    }
+.logo-ags {
+		max-width: 180px;
+}
+
+.CerrarSesion {
+		text-align: center;
+		height: inherit;
+		vertical-align: middle;
+		display: flex !important;
+		align-content: center;
+		align-items: center;
+		justify-content: center;
+}
+
+.nav-link {
+		text-align: center;
+		background-color: var(--bg-color-nav) !important;
+}
+
+.buscar {
+		max-width: 25rem;
+}
+
+.btn {
+		margin-bottom: 3px !important;
+}
+
+.btn-danger {
+		display: flex;
+		justify-content: center;
+}
+
+.navbar {
+		padding: 0rem !important;
+		height: 70px;
+}
+
+		.navbar .navbar-expand-lg .navbar-light .bg-light {
+				background-color: var(--bg-color-nav);
+		}
 
 * {
-    font-family: sans-serif;
+		font-family: sans-serif;
 }
 
 body {
-    margin: 0px;
-    height: 100%
-    /*background-image: url(https://www.ags.gob.mx/sitio_imgs/home/bg_cam.jpg );*/
+		margin: 0px;
+		height: 100%
+		/*background-image: url(https://www.ags.gob.mx/sitio_imgs/home/bg_cam.jpg );*/
 }
 
 /* LOGIN */
 .fondo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
 }
 
 .login_bck {
-    background-image: url(https://ags.gob.mx/servicios/licitacionesyconcursos/imagenes/muni.jpg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-size: cover;
-    background-position: top center;
-    background-repeat: no-repeat;
+		background-image: url(https://ags.gob.mx/servicios/licitacionesyconcursos/imagenes/muni.jpg);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-size: cover;
+		background-position: top center;
+		background-repeat: no-repeat;
 }
 
 label {
-    user-select: none;
+		user-select: none;
 }
 
 input[type="checkbox" i] {
-    margin-top: 1rem;
+		margin-top: 1rem;
 }
 
 .login {
-    width: 66%;
-    display: flex;
-    text-align: center;
-    background-color: var(--bg-color-forms);
-    padding: 2rem;
-    padding-bottom: 0px;
-    border-radius: 5px;
-    box-shadow: 7px 13px 37px #000;
-    flex-direction: column;
-    align-content: center;
-    align-items: center;
+		width: 66%;
+		display: flex;
+		text-align: center;
+		background-color: var(--bg-color-forms);
+		padding: 2rem;
+		padding-bottom: 0px;
+		border-radius: 5px;
+		box-shadow: 7px 13px 37px #000;
+		flex-direction: column;
+		align-content: center;
+		align-items: center;
 }
 
 .Tlogin {
-    background: linear-gradient(60deg,var(--bg-color-login-top),var(--bg-color-login-bottom));
-    color: var(--lett-color-btn);
-    border-radius: 5px;
-    margin-top: -4.5rem;
-    margin-left: -1rem;
-    margin-right: -1rem;
-    padding: 1rem;
-    box-shadow: 8px 5px 30px #444;
+		background: linear-gradient(60deg,var(--bg-color-login-top),var(--bg-color-login-bottom));
+		color: var(--lett-color-btn);
+		border-radius: 5px;
+		margin-top: -4.5rem;
+		margin-left: -1rem;
+		margin-right: -1rem;
+		padding: 1rem;
+		box-shadow: 8px 5px 30px #444;
 }
 
 h2 {
-    margin: 0px !important;
+		margin: 0px !important;
 }
 
 .textito {
-    margin-top: .9rem;
-    width: 13rem;
-    padding: .5rem;
-    user-select: none;
-    border-radius: 5px;
-    outline: none;
+		margin-top: .9rem;
+		width: 13rem;
+		padding: .5rem;
+		user-select: none;
+		border-radius: 5px;
+		outline: none;
 }
 
 .btn-darku {
-    background-color: var(--bg-color-btn);
-    color: var(--lett-color-btn);
-    border-radius: 5px;
-    height: 2rem;
-    width: 15rem;
-    user-select: none;
-    margin-top: 0.5rem;
+		background-color: var(--bg-color-btn);
+		color: var(--lett-color-btn);
+		border-radius: 5px;
+		height: 2rem;
+		width: 15rem;
+		user-select: none;
+		margin-top: 0.5rem;
 }
 
-    .btn-darku:hover {
-        background-color: var(--bg-color-btn-active);
-        color: var(--lett-color-btn-active);
-        cursor: pointer;
-    }
+		.btn-darku:hover {
+				background-color: var(--bg-color-btn-active);
+				color: var(--lett-color-btn-active);
+				cursor: pointer;
+		}
 
 
 .login .btn-darku {
-    background-color: var(--bg-color-btn-login);
-    color: var(--lett-color-btn);
-    border-radius: 3px;
-    padding: 1.125rem 2.25rem;
-    padding-bottom: 2.5rem;
-    font-size: 1.25rem;
-    border: none;
-    user-select: none;
-    margin-top: 0.5rem;
-    width: fit-content;
+		background-color: var(--bg-color-btn-login);
+		color: var(--lett-color-btn);
+		border-radius: 3px;
+		padding: 1.125rem 2.25rem;
+		padding-bottom: 2.5rem;
+		font-size: 1.25rem;
+		border: none;
+		user-select: none;
+		margin-top: 0.5rem;
+		width: fit-content;
 }
 
-    .login .btn-darku:hover {
-        background-color: var(--bg-color-btn-login-active);
-        color: var(--lett-color-btn-active);
-        cursor: pointer;
-    }
+		.login .btn-darku:hover {
+				background-color: var(--bg-color-btn-login-active);
+				color: var(--lett-color-btn-active);
+				cursor: pointer;
+		}
 
 .credentials {
-    display: flex;
-    flex-direction: column;
-    width: -webkit-fill-available;
-    align-items: center;
+		display: flex;
+		flex-direction: column;
+		width: -webkit-fill-available;
+		align-items: center;
 }
 
-    .credentials .textito {
-        border-radius: 0%;
-        border: 0px !important;
-        background-color: var(--bg-color-forms);
-        margin-bottom: 0px !important;
-        width: -webkit-fill-available;
-    }
+		.credentials .textito {
+				border-radius: 0%;
+				border: 0px !important;
+				background-color: var(--bg-color-forms);
+				margin-bottom: 0px !important;
+				width: -webkit-fill-available;
+		}
 
-        .credentials .textito:hover {
-            border-color: var(--orage-test);
-            transition: ease-in-out;
-            transition-duration: 3s,5s;
-        }
+				.credentials .textito:hover {
+						border-color: var(--orage-test);
+						transition: ease-in-out;
+						transition-duration: 3s,5s;
+				}
 
-        .credentials .textito:focus {
-            border: transparent;
-            background-image: linear-gradient(to top, blue 2px, var(--bg-color-forms) 2px);
-        }
+				.credentials .textito:focus {
+						border: transparent;
+						background-image: linear-gradient(to top, blue 2px, var(--bg-color-forms) 2px);
+				}
 
-    .credentials div {
-        display: flex;
-        align-items: center;
-        padding-top: 1rem;
-        width: -webkit-fill-available;
-        justify-content: center;
-    }
+		.credentials div {
+				display: flex;
+				align-items: center;
+				padding-top: 1rem;
+				width: -webkit-fill-available;
+				justify-content: center;
+		}
 
-    .credentials span {
-        color: #5b5b5b;
-    }
+		.credentials span {
+				color: #5b5b5b;
+		}
 
 /*PÁGINA BIENVENIDA*/
 .text-center {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
 }
 
 .columns {
-    display: flex;
-    justify-content: space-around;
+		display: flex;
+		justify-content: space-around;
 }
 
-    .columns img {
-        height: 30rem;
-    }
+.columns img {
+		height: 30rem;
+}
+
+@media (max-width: 992px) {
+		.columns {
+				flex-direction: column;
+		}
+
+		.columns img {
+				width: 720px;
+		}
+}
 
 /* PÁGINA NUEVA, MODIFICAR Y BORRAR */
 .new-page {
-    text-align: left;
-    background-color: var(--bg-color-forms);
-    margin: auto;
-    padding: 2rem;
-    border-radius: 5px;
-    /*box-shadow: 7px 13px 37px #000;*/
-    margin-bottom: 3rem;
+		text-align: left;
+		background-color: var(--bg-color-forms);
+		margin: auto;
+		padding: 2rem;
+		border-radius: 5px;
+		/*box-shadow: 7px 13px 37px #000;*/
+		margin-bottom: 3rem;
 }
 
 .info {
-    display: block;
+		display: block;
 }
 
 .sect {
-    margin-left: 0rem;
+		margin-left: 0rem;
 }
 
 .add-new-page {
-    margin-top: 1rem;
-    position: relative;
-    display: grid;
+		margin-top: 1rem;
+		position: relative;
+		display: grid;
 }
 
 input[type="time" i] {
-    width: auto;
+		width: auto;
 }
 
 input[type="date" i] {
-    width: auto;
+		width: auto;
 }
 
 select {
-    width: auto !important;
+		width: auto !important;
 }
 
 a {
-    text-decoration: none;
+		text-decoration: none;
 }
 
 h4 .alert {
-    background-color: var(--lett-color-alert);
+		background-color: var(--lett-color-alert);
 }
 
 @media (max-width: 773px) {
-    .sect {
-        display: inline-flex;
-        flex-direction: column;
-    }
+		.sect {
+				display: inline-flex;
+				flex-direction: column;
+		}
 
-    .info {
-        display: flex;
-        flex-direction: column;
-    }
+		.info {
+				display: flex;
+				flex-direction: column;
+		}
 
-    .textito {
-        margin-top: 0px;
-        margin-bottom: 1rem;
-    }
+		.textito {
+				margin-top: 0px;
+				margin-bottom: 1rem;
+		}
 }
 
 /*Sección de conenido nueva*/
 textarea {
-    height: 10rem;
-    width: 90% !important;
-    resize: both;
+		height: 10rem;
+		width: 90% !important;
+		resize: both;
 }
 
 .borde-final {
-    margin-bottom: 5rem;
+		margin-bottom: 5rem;
 }
 
 .oculto {
-    display: none;
+		display: none;
 }
 
 /*Todas las páginas (tablas)*/
 
 .sorting {
-    width: fit-content;
+		width: fit-content;
 }
 
 .row-menu {
-    justify-content: space-evenly;
+		justify-content: space-evenly;
 }
 /*Contenidos, submenús y subtablas*/
 .Titulo {
-    display: flex;
-    justify-content: space-between;
+		display: flex;
+		justify-content: space-between;
 }
 
 .ContenidoTitulo {
-    display: inline-block;
+		display: inline-block;
 }
 
 .btn-agregarEnTabla {
-    display: inline-block;
-    margin: 0px;
+		display: inline-block;
+		margin: 0px;
 }
 
 .Titulo .btn-agregarEnTabla {
-    display: flex;
-    position: relative;
-    width: -webkit-fill-available;
-    flex-direction: row-reverse;
+		display: flex;
+		position: relative;
+		width: -webkit-fill-available;
+		flex-direction: row-reverse;
 }
