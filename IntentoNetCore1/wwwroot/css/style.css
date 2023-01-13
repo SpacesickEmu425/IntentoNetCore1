@@ -28,6 +28,11 @@
 .contenido {
 		display: inline-block;
 }
+
+.transition {
+		transition: background-color 0.08s linear 0.02s;
+}
+
 /*BARRA DE NAVEGACIÓN*/
 .logo {
 		position: relative;
@@ -37,7 +42,6 @@
 
 .navbar-light .navbar-nav .nav-link {
 		height: 100%;
-		transition: background-color 0.08s linear 0.02s;
 }
 
 li .nav-item {
