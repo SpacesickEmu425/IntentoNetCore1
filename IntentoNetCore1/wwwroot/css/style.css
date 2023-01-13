@@ -98,7 +98,7 @@ li .nav-item {
 
 #navbarSupportedContent {
 		height: inherit !important;
-
+		z-index:10;
 }
 
 .navbar {
