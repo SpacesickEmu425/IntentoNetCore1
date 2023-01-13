@@ -276,10 +276,10 @@ h2 {
 						transition-duration: 3s,5s;
 				}
 
-				.credentials .textito:focus {
-						border: transparent;
-						background-image: linear-gradient(to top, blue 2px, var(--bg-color-forms) 2px);
-				}
+						.credentials .textito:focus {
+								border: transparent;
+								background-image: linear-gradient(to top, var(--bg-color-btn-login) 2px, var(--bg-color-forms) 2px);
+						}
 
 		.credentials div {
 				display: flex;
