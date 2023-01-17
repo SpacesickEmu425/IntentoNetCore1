@@ -22,6 +22,7 @@ namespace IntentoNetCore1.Models.DB
 				public virtual DbSet<Contenido> Contenido { get; set; }
 				public virtual DbSet<Paginas> Paginas { get; set; }
 				public virtual DbSet<Cont> Cont { get; set; }
+				public virtual DbSet<Usuario> Usuario { get; set; }
 
 				protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 				{

@@ -12,7 +12,7 @@ namespace IntentoNetCore1.Controllers
 {
 		public class AccountController : Controller
 		{
-				private IntranetDB dB;
+				private static IntranetDB dB;
 				public AccountController(IntranetDB _db)
 				{
 						dB = _db;//Inicializa base de datos
@@ -20,36 +20,46 @@ namespace IntentoNetCore1.Controllers
 
 				public IActionResult Login()
 				{
-				//Limpia la variable de error
-						ViewBag.Error = "";
-						return View(); 
+				//Verifica si la sesión está "abierta" y envía directamente a la página de inicio
+				if (User.Identity.IsAuthenticated)
+						{
+								return RedirectToAction("Index", "Home");
+						}
+				else
+						{
+								//Limpia la variable de error
+								ViewBag.Error = "";
+								return View();
+						}
 				}
 
 				[HttpPost]
-
-
-
 				//Toma los valores del index para poder ingresar, por ahora el if(user_input=="Usuario" && pass_input == "1234")
 				//Sirve de forma local, no hace la petición de verificar datos de la tabla de usuarios, porque no existe aún
-				public IActionResult Login(string user_input, string pass_input)
+				public IActionResult Login(bool remember, string user_input, string pass_input)
 				{
 						ClaimsIdentity identity = null;
 						bool isAuthenticate = false;
 
 						/*Valida las credenciales, eventualmente se hace aquí, lo ideal es obtener los datos*
 						  de la tabla de la base de datos*/
-						if (user_input == "Usuario" && pass_input == "1234")
+						List<Usuario> usuarios = dB.Usuario.ToList();
+
+						for (int i=0; i< usuarios.Count(); i++)
 						{
-								identity = new ClaimsIdentity(new[]
-													 {
+								if (user_input == usuarios[i].Nombre && pass_input == usuarios[i].Contra)
+								{
+										identity = new ClaimsIdentity(new[]
+															 {
 										new Claim(ClaimTypes.Name,user_input),
 											new Claim(ClaimTypes.NameIdentifier,pass_input)
 								}, CookieAuthenticationDefaults.AuthenticationScheme);
-								isAuthenticate = true;
-								/*Se le asigna el rol de administrador, en este caso, mas adelante, se va a asignar el 
-								 * rol a cada usuario*/
-								identity.AddClaim(new Claim(ClaimTypes.Role, "administrador"));
+										isAuthenticate = true;
+										/*Se le asigna el rol de administrador, en este caso, mas adelante, se va a asignar el 
+										 * rol a cada usuario*/
+										identity.AddClaim(new Claim(ClaimTypes.Role, "administrador"));
 
+								}
 						}
 						//Si se ha autenticado:..
 						if (isAuthenticate)
