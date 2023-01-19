@@ -267,7 +267,7 @@ h2 {
 		.credentials .textito {
 				border-radius: 0%;
 				border: 0px !important;
-				background-color: var(--bg-color-forms);
+				background-color: transparent;
 				margin-bottom: 0px !important;
 				width: -webkit-fill-available;
 		}
@@ -280,6 +280,7 @@ h2 {
 
 						.credentials .textito:focus {
 								border: transparent;
+								background-color:transparent;
 								background-image: linear-gradient(to top, var(--bg-color-btn-login) 2px, var(--bg-color-forms) 2px);
 						}
 
@@ -294,6 +295,20 @@ h2 {
 		.credentials span {
 				color: #5b5b5b;
 		}
+
+.alert-warning {
+		color: #856404;
+		background-color: #fff3cd;
+		border-color: #ffeeba;
+}
+
+.alert {
+		position: relative;
+		padding: 0.75rem 1.25rem;
+		margin-bottom: 1rem;
+		border: 1px solid transparent;
+		border-radius: 0.25rem;
+}
 
 /*PÁGINA BIENVENIDA*/
 .text-center {

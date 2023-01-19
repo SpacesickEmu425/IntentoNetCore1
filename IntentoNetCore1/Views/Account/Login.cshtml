@@ -1,46 +1,46 @@
 ﻿@*
 		For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
-@{
-		Layout = null;
-}
+@{ Layout = null; }
 <head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Inicio de Sesión</title>
 		<link rel="stylesheet" type="text/css" href="~/css/style.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 <body class="login_bck">
 		<div class="fondo">
-			<form class="login" action="Login" method="post">
-				<div class="Tlogin">
-					<p>Administración de Contenidos de la Página Web</p>
-					<hr>
-					<h2>Iniciar Sesión</h2>
-				</div>
-					<hr>
-					<div class="credentials">
-						<div>
-							<span class="material-symbols-outlined">
-								person
-							</span>
-							<input class="textito" required type="text" name="user_input" placeholder="Usuario">
+				<form class="login" action="Login" method="post">
+						<div class="Tlogin">
+								<p>Administración de Contenidos de la Página Web</p>
+								<hr>
+								<h2>Iniciar Sesión</h2>
 						</div>
-						<div>
-							<span class="material-symbols-outlined">
-								lock
-							</span>
-							<input class="textito" required type="password" name="pass_input" placeholder="Contraseña">
+						<hr>
+						<div class="credentials">
+								<div>
+										<span class="material-symbols-outlined">
+												person
+										</span>
+										<input class="textito" required type="text" name="user_input" placeholder="Usuario">
+								</div>
+								<div>
+										<span class="material-symbols-outlined">
+												lock
+										</span>
+										<input class="textito" required type="password" name="pass_input" placeholder="Contraseña">
+								</div>
 						</div>
-					</div>
-					<label>
-							<input type="checkbox" id="remember" name="remember">Recordar usuario
-					</label>
-					<input class="btn btn-darku transition" type="submit" value="Iniciar sesión" />
-					<!--Se genera el error que haya-->
-					<label class="alert alert-warning">@ViewBag.Error</label>
-			</form>
+						<label>
+								<input type="checkbox" id="remember" name="remember">Recordar usuario
+						</label>
+						<input class="btn btn-darku transition" type="submit" value="Iniciar sesión" />
+						<!--Se genera el error que haya-->
+						<label class="alert alert-warning">@ViewBag.Error</label>
+				</form>
 		</div>
 </body>
 

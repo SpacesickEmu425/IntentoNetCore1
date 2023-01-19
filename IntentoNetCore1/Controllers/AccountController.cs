@@ -74,7 +74,7 @@ namespace IntentoNetCore1.Controllers
 								return RedirectToAction("Index", "Home");//Redirecciona a la vista index de la careta Home
 						}
 						//Crea una label que aparece cuando hay un error
-						ViewBag.Error = "Usuario y contraseña incorrectos";
+						ViewBag.Error = 2;
 						return View();
 				}
 				//LogOut, hace que te redirija a la vista de Login

@@ -37,23 +37,7 @@
 										<li class="nav-item">
 												<a class="nav-link transition" href="@Url.Action("AgregarMenuNuevo","Secciones")">Agregar un Menú Raíz Nuevo</a>
 										</li>
-										@*<li class="nav-item dropdown">
-														<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-																Administrador de menús
-														</a>
-														<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-																<a class="dropdown-item" href="@Url.Action("AdministradorMenus","Secciones")">Administrador de menús</a>
-																<a class="dropdown-item" href="@Url.Action("AgregarMenuNuevo","Secciones")">Agregar un Menú Raíz Nuevo (Menú nuevo.aspx)</a>
-														</div>
-												</li>
-												<li class="nav-item">
-														<a class="nav-link CerrarSesion" href="@Url.Action("logout","Account")">Cerrar Sesión</a>Type submit agregado
-												</li>*@
 								</ul>
-								@*<form class="form-inline my-2 my-lg-0">
-												<input class="form-control mr-sm-2" type="search" placeholder="Buscar..." aria-label="Search">
-												<button class="btn btn-dark my-2 my-sm-0" type="submit">Buscar</button>
-										</form>*@
 								<a class="nav-link CerrarSesion btn-danger" href="@Url.Action("logout","Account")">Cerrar Sesión</a><!--Type submit agregado-->
 						</div>
 				</nav>
@@ -92,12 +76,9 @@
 				$('#cla_menupapa').on('change', function () {
 						$('#cla_menu option').remove();
 						var cla_papaMenu = $('#cla_menupapa option:selected').val();
-						/*alert(cla_papaMenu);*/
 						if (cla_papaMenu != -1) {
-								//alert(cla_papaMenu);
 								$.ajax({
-										type: 'GET',
-										/*url: { cla_papa: cla_papaMenu },*/
+										type: 'GET', 
 										url: '@Url.Action("BuscarSubmenus", "Secciones")/' + cla_papaMenu,
 										success: function (result) {
 												var s = '<option value="-1">Selecciona un submenú</option>';
