@@ -3,14 +3,6 @@
 @{
 		ViewData["Title"] = "Agregar submenú";
 }
-<!--Debe marcar una alerta de que se va a borrar el menú-->
-@*<script>
-				var idmax = @Model.menus.Count();
-				var suma = parseInt(idmax) + 1;
-
-				document.getElementById('cla_menu').value = suma;
-
-		</script>*@
 @{
 		var maximo = (from li in Model.menus select li.cla_menu).Max();
 		maximo = (int)maximo + 1;

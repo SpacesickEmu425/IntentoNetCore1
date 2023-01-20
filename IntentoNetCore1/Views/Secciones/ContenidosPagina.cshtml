@@ -1,4 +1,5 @@
-﻿@model IEnumerable<IntentoNetCore1.Models.DB.Contenido>//Se basa en el modelo hecho en la parte de Models para crear un objeto con esos "atributos"
+﻿@model IEnumerable<IntentoNetCore1.Models.DB.Contenido>
+@*Se basa en el modelo hecho en la parte de Models para crear un objeto con esos "atributos"*@
 @{
 		ViewData["Title"] = "Contenidos";
 }
@@ -65,15 +66,5 @@
 								}
 						</tbody>
 				</table>
-		</div>
-		@*<div class="row">
-						@for (var i = 0; i <= ViewBag.total; i++)
-						{
-								int i2 = i + 1;
-								<div class="col-1">
-										<a href="@Url.Action("TodasPag", "Secciones", new { option = i})" class="form-control btn btn-dark">@i2</a>
-
-								</div>
-						}
-				</div>*@
+		</div> 
 </form>

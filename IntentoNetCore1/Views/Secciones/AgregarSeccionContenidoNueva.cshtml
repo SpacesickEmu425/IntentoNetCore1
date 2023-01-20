@@ -4,11 +4,6 @@
 		ViewData["Title"] = "Agregar contenido a página nueva";
 }
 
-@*@{
-		var maximo = (from li in Model.contenidos select li.cla_sec).Max();
-		maximo = (int)maximo + 1;
-}*@
-
 <form class="new-page" action="AgrContenido" method="post">
 		<h2>Agregar Sección de contenido nueva a @ViewBag.Pagina.TituloBrowser</h2>
 		<hr />
