@@ -87,9 +87,6 @@ namespace IntentoNetCore1.Controllers
 						ViewBag.Pagina = dB.Paginas.Where(m => m.cla_pag == cla_pag).FirstOrDefault();
 						List<Contenido> lista = dB.Contenido.ToList();
 						cont.contenido.ID_Contenido = lista.Count() + 1;
-						//contenidoo.contenidos = dB.Contenido.ToList();
-						//contenidoo.contenido = new Contengfgfido();
-						//contenidoo.contenido.cla_pag = cla_pag;
 						return View(cont);
 				}
 				public IActionResult PagNueva()
@@ -97,7 +94,6 @@ namespace IntentoNetCore1.Controllers
 						Paginas pagina = new Paginas();
 						List<Menus> menupadre = dB.Menus.Where(m => m.cla_papa == 0).ToList();
 						ViewBag.menupadre = menupadre;
-						//pagina.menus = dB.Menus.ToList();
 						return View(pagina);
 				}
 
@@ -117,7 +113,6 @@ namespace IntentoNetCore1.Controllers
 						return View(menu);
 				}
 
-				//[Route("Secciones/ComprobarSubmenus/{cla_papaMenu}")]
 				public IActionResult ComprobarSubmenus(int cla_menu)
 				{
 						List<Menus> menus_hijos = dB.Menus.Where(m => m.cla_papa == cla_menu).ToList();
@@ -218,9 +213,6 @@ namespace IntentoNetCore1.Controllers
 						miMenu.link = menuu.link;
 						miMenu.tipomenu = menuu.tipomenu;
 						miMenu.activo = menuu.activo;
-						//dB.Update(menuu);
-						//dB.Menus.Attach(miMenu);
-						//dB.Entry(miMenu).State = EntityState.Modified;
 						dB.SaveChanges();
 						return RedirectToAction("AdministradorMenus", "Secciones");
 				}
@@ -240,11 +232,9 @@ namespace IntentoNetCore1.Controllers
 				[HttpPost]
 				public ActionResult AgrSubMenu(Menus submenuu)
 				{
-						//List < Menus > lista = dB.Menus.ToList();
 						var maximo = (from li in dB.Menus select li.cla_menu).Max();//Lenguaje linq, que es basicamente hacer cuna consulta a la BD
 						maximo = (int)maximo + 1;
 						submenuu.cla_menu = maximo;
-						//submenuu.cla_papa = 
 						dB.Add(submenuu);
 						dB.SaveChanges();
 						return RedirectToAction("AdministradorMenus", "Secciones");
@@ -281,15 +271,11 @@ namespace IntentoNetCore1.Controllers
 				[HttpPost]
 				public ActionResult AgrContenido(Contenido contenidoo)
 				{
-						//var maximoID = (from li in dB.Contenido select li.ID_Contenido).Max();//Lenguaje linq
-						//maximoID = (int)maximoID + 1;
-						////Acá debe de modificarse contenidoo.cla_sec con algún valor, pero no sé cual es, hay que averiguar qué es el valor correspondiente
-						//contenidoo.ID_Contenido = maximoID;
 						var maximoSec = (from li in dB.Contenido select li.cla_sec).Max();
 						maximoSec = (int)maximoSec + 1;
 						contenidoo.cla_sec = maximoSec;
 						dB.Add(contenidoo);
-						dB.SaveChanges();//SqlException: Cannot insert explicit value for identity column in table 'Contenido' when IDENTITY_INSERT is set to OFF.
+						dB.SaveChanges();
 						return RedirectToAction("TodasPag", "Secciones");
 				}
 
