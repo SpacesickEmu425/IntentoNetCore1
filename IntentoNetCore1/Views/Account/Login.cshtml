@@ -1,4 +1,6 @@
-﻿@*
+﻿@model IEnumerable<IntentoNetCore1.Models.DB.Usuario>
+@addTagHelper*, Microsoft.AspNetCore.Mvc.TagHelpers
+@*
 		For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{ Layout = null; }
@@ -25,13 +27,13 @@
 										<span class="material-symbols-outlined">
 												person
 										</span>
-										<input class="textito" required type="text" name="user_input" placeholder="Usuario">
+										<input class="textito" required type="text" id="Nombre" name="Nombre" placeholder="Usuario">
 								</div>
 								<div>
 										<span class="material-symbols-outlined">
 												lock
 										</span>
-										<input class="textito" required type="password" name="pass_input" placeholder="Contraseña">
+										<input class="textito" required type="password" id="Contra" name="Contra" placeholder="Contraseña">
 								</div>
 						</div>
 						<label>
@@ -39,8 +41,16 @@
 						</label>
 						<input class="btn btn-darku transition" type="submit" value="Iniciar sesión" />
 						<!--Se genera el error que haya-->
-						<label class="alert alert-warning">@ViewBag.Error</label>
+						<label id="denegado" class="alert alert-warning">@ViewBag.Error</label>
 				</form>
 		</div>
+		@if (ViewData["Error"] != null)
+		{
+				<script type="text/javascript">
+										window.onload = function () {
+												alert("@ViewData["Error"]");
+										};
+				</script>
+		}
 </body>
 

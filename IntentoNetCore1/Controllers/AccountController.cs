@@ -28,7 +28,7 @@ namespace IntentoNetCore1.Controllers
 				else
 						{
 								//Limpia la variable de error
-								ViewBag.Error = "";
+								ViewData["Error"] = null;
 								return View();
 						}
 				}
@@ -36,7 +36,7 @@ namespace IntentoNetCore1.Controllers
 				[HttpPost]
 				//Toma los valores del index para poder ingresar, por ahora el if(user_input=="Usuario" && pass_input == "1234")
 				//Sirve de forma local, no hace la petición de verificar datos de la tabla de usuarios, porque no existe aún
-				public IActionResult Login(bool remember, string user_input, string pass_input)
+				public IActionResult Login(string user_input, string pass_input)
 				{
 						ClaimsIdentity identity = null;
 						bool isAuthenticate = false;
@@ -74,8 +74,8 @@ namespace IntentoNetCore1.Controllers
 								return RedirectToAction("Index", "Home");//Redirecciona a la vista index de la careta Home
 						}
 						//Crea una label que aparece cuando hay un error
-						ViewBag.Error = 2;
-						return View();
+						ViewData["Error"] = "Los datos ingresados no son correctos";
+						return View(usuarios);
 				}
 				//LogOut, hace que te redirija a la vista de Login
 				public IActionResult Logout()
