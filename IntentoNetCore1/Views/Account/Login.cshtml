@@ -1,5 +1,4 @@
-﻿@model IEnumerable<IntentoNetCore1.Models.DB.Usuario>
-@addTagHelper*, Microsoft.AspNetCore.Mvc.TagHelpers
+﻿@model IntentoNetCore1.Models.DB.Usuario
 @*
 		For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
@@ -27,13 +26,13 @@
 										<span class="material-symbols-outlined">
 												person
 										</span>
-										<input class="textito" required type="text" id="Nombre" name="Nombre" placeholder="Usuario">
+										<input class="textito" required type="text" id="Nombre" name="Nombre" placeholder="Usuario" asp-for="@Model.Nombre">
 								</div>
 								<div>
 										<span class="material-symbols-outlined">
 												lock
 										</span>
-										<input class="textito" required type="password" id="Contra" name="Contra" placeholder="Contraseña">
+										<input class="textito" required type="password" id="Contra" name="Contra" placeholder="Contraseña" asp-for="@Model.Contra">
 								</div>
 						</div>
 						<label>

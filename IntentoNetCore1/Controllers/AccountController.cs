@@ -20,6 +20,7 @@ namespace IntentoNetCore1.Controllers
 
 				public IActionResult Login()
 				{
+						Usuario usuario = new Usuario();
 				//Verifica si la sesión está "abierta" y envía directamente a la página de inicio
 				if (User.Identity.IsAuthenticated)
 						{
@@ -29,14 +30,14 @@ namespace IntentoNetCore1.Controllers
 						{
 								//Limpia la variable de error
 								ViewData["Error"] = null;
-								return View();
+								return View(usuario);
 						}
 				}
 
 				[HttpPost]
 				//Toma los valores del index para poder ingresar, por ahora el if(user_input=="Usuario" && pass_input == "1234")
 				//Sirve de forma local, no hace la petición de verificar datos de la tabla de usuarios, porque no existe aún
-				public IActionResult Login(string user_input, string pass_input)
+				public IActionResult Login(string Nombre, string Contra)
 				{
 						ClaimsIdentity identity = null;
 						bool isAuthenticate = false;
@@ -47,12 +48,12 @@ namespace IntentoNetCore1.Controllers
 
 						for (int i=0; i< usuarios.Count(); i++)
 						{
-								if (user_input == usuarios[i].Nombre && pass_input == usuarios[i].Contra)
+								if (Nombre == usuarios[i].Nombre && Contra == usuarios[i].Contra)
 								{
 										identity = new ClaimsIdentity(new[]
 															 {
-										new Claim(ClaimTypes.Name,user_input),
-											new Claim(ClaimTypes.NameIdentifier,pass_input)
+										new Claim(ClaimTypes.Name,Nombre),
+											new Claim(ClaimTypes.NameIdentifier,Contra)
 								}, CookieAuthenticationDefaults.AuthenticationScheme);
 										isAuthenticate = true;
 										/*Se le asigna el rol de administrador, en este caso, mas adelante, se va a asignar el 
