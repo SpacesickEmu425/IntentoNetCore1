@@ -1,9 +1,7 @@
-﻿@model IntentoNetCore1.Models.DB.Contenido 
-	@*//Se basa en el modelo hecho en la parte de Models para crear un objeto con esos "atributos"*@
+﻿@model IntentoNetCore1.Models.DB.Contenido
+@*//Se basa en el modelo hecho en la parte de Models para crear un objeto con esos "atributos"*@
 
-@{
-		ViewData["Title"] = "Modificar Contenido";
-}
+@{ ViewData["Title"] = "Modificar Contenido"; }
 
 <form class="new-page" action="ModContenido" method="post">
 		<h2>Modificar Sección de contenido nueva</h2>
@@ -28,3 +26,11 @@
 				<input type="submit" value="Modificar Sección de contenido Nueva" name="Agregar" class="btn btn-dark">
 		</div>
 </form>
+@section scripts {
+
+		<script src="~/js/ckeditor/ckeditor.js"></script>
+		<script type="text/javascript">$(document).ready(function () {
+						CKEDITOR.replace('contenido');
+				});</script>
+
+}

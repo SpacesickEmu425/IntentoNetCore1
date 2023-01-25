@@ -2,9 +2,7 @@
 @*
 		Se basa en el modelo hecho en la parte de Models para crear un objeto con esos "atributos"
 *@
-@{
-		ViewData["Title"] = "Borrar contenido";
-}
+@{ ViewData["Title"] = "Borrar contenido"; }
 <h4 class="alert bg-warning">PRECAUCIÓN, ESTÁ A PUNTO DE BORRAR ESTA SECCIÓN DE CONTENIDO</h4>
 <form class="new-page" action="BorrContenido" method="post">
 		<h2>Borrar Sección de contenido nueva</h2>
@@ -29,3 +27,11 @@
 				<input type="submit" value="Borrar Sección de contenido" name="Borrar" class="btn btn-dark">
 		</div>
 </form>
+@section scripts {
+
+		<script src="~/js/ckeditor/ckeditor.js"></script>
+		<script type="text/javascript">$(document).ready(function () {
+						CKEDITOR.replace('contenido');
+				});</script>
+
+}

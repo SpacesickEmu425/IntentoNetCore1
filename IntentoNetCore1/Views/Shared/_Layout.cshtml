@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -78,7 +78,7 @@
 						var cla_papaMenu = $('#cla_menupapa option:selected').val();
 						if (cla_papaMenu != -1) {
 								$.ajax({
-										type: 'GET', 
+										type: 'GET',
 										url: '@Url.Action("BuscarSubmenus", "Secciones")/' + cla_papaMenu,
 										success: function (result) {
 												var s = '<option value="-1">Selecciona un submenú</option>';
@@ -109,6 +109,8 @@
 						});
 				});
 		</script>
+
+		
 
 		@RenderSection("Scripts", required: false)
 </body>

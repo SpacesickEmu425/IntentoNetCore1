@@ -1,8 +1,6 @@
 ﻿@model IntentoNetCore1.Models.DB.ContenidoNuevo
 
-@{
-		ViewData["Title"] = "Agregar contenido a página nueva";
-}
+@{ ViewData["Title"] = "Agregar contenido a página nueva"; }
 
 <form class="new-page" action="AgrContenido" method="post">
 		<h2>Agregar Sección de contenido nueva a @ViewBag.Pagina.TituloBrowser</h2>
@@ -10,8 +8,8 @@
 		<div class="sect">
 				<div class="info">
 						<label>Folio Automático de Esta Sección (único):</label>
-						<input type="text" class="textito" value="@ViewBag.ClavSecc" disabled/>
-						<input type="text"  name="cla_sec" id="cla_sec" asp-for="@Model.contenido.cla_sec" value="@ViewBag.ClavSecc" style="display:none" />
+						<input type="text" class="textito" value="@ViewBag.ClavSecc" disabled />
+						<input type="text" name="cla_sec" id="cla_sec" asp-for="@Model.contenido.cla_sec" value="@ViewBag.ClavSecc" style="display:none" />
 				</div>
 				<div class="info">
 						<label>Clave de la página a la que pertenece:</label>
@@ -31,3 +29,14 @@
 				<input type="submit" value="Agregar Sección de contenido Nueva" name="Agregar" class="btn btn-dark">
 		</div>
 </form>
+@section scripts {
+
+		<script src="~/js/ckeditor/ckeditor.js"></script>
+		<script type="text/javascript">
+				$(document).ready(function () {
+						CKEDITOR.replace('contenido');
+				});
+
+		</script>
+
+}
