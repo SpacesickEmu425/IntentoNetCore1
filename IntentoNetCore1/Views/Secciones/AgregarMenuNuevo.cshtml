@@ -1,13 +1,9 @@
 ﻿@model IntentoNetCore1.Models.DB.MenuNuevo
 @*Se basa en el modelo hecho en la parte de Models para crear un objeto con esos "atributos"*@
-@{
-		ViewData["Title"] = "Agregar menú";
-}
-@{
-		//Calcula cuál será la cla_menu del nuevo menú
-		var maximo = (from li in Model.menus select li.cla_menu).Max();
-		maximo = (int)maximo + 1;
-}
+@{ ViewData["Title"] = "Agregar menú"; }
+@{ //Calcula cuál será la cla_menu del nuevo menú
+								var maximo = (from li in Model.menus select li.cla_menu).Max();
+								maximo = (int)maximo + 1; }
 
 <form class="new-page" action="AgrMenu" method="post">
 		<h2> Agregar Menú nuevo</h2>
@@ -15,7 +11,7 @@
 		<div class="sect">
 				<div class="info">
 						<label>Folio Automático de Esta Sección (único):</label>
-						<input type="text" readonly disabled class="textito" value="@maximo" id="cla_menu" name="cla_menu" asp-for="menu.cla_menu"/>
+						<input type="text" readonly disabled class="textito" value="@maximo" id="cla_menu" name="cla_menu" asp-for="menu.cla_menu" />
 						<!--Tanto este valor como los demás deben ser tomados del registro del menú a modificar-->
 				</div>
 				<div class="info">

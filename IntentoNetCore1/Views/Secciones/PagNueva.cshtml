@@ -2,9 +2,7 @@
 @*
 		Hay que ver cómo añadir nuevos registros a la tabla Páginas
 *@
-@{
-		ViewData["Title"] = "Agregar pagina nueva";
-}
+@{ ViewData["Title"] = "Agregar pagina nueva"; }
 <form class="new-page" action="PagNueva" method="post">
 		<h2>Página Nueva</h2>
 		<hr>
@@ -19,13 +17,13 @@
 				</div>
 				<div class="info">
 						<label>A qué MENÚ PRINCIPAL al que pertenece</label>
-				<select class="textito" id="cla_menupapa" name="cla_menupapa" asp-for="@Model.cla_menupapa">
+						<select class="textito" id="cla_menupapa" name="cla_menupapa" asp-for="@Model.cla_menupapa">
 
-						<option value="-1">Selecciona una opción</option>
-						@foreach (var menu in ViewBag.menupadre) {
-								<option value="@menu.cla_menu">@menu.Menu</option>
-						}
-				</select>
+								<option value="-1">Selecciona una opción</option>
+								@foreach (var menu in ViewBag.menupadre)
+								{
+		<option value="@menu.cla_menu">@menu.Menu</option>						}
+						</select>
 				</div>
 				<div class="info">
 						<label>A que sección de MENÚ pertenece la página</label>
@@ -66,3 +64,46 @@
 		</div>
 		<input type="submit" value="Crear página" name="NuevaPag" id="NuevaPag" class="btn btn-dark">
 </form>
+@section scripts {
+
+		<script type="text/javascript">
+		$(document).ready(function () {
+				$('#cla_menupapa').on('change', function () {
+						$('#cla_menu option').remove();
+						var cla_papaMenu = $('#cla_menupapa option:selected').val();
+						if (cla_papaMenu != -1) {
+								$.ajax({
+										type: 'GET',
+										url: '@Url.Action("BuscarSubmenus", "Secciones")/' + cla_papaMenu,
+										success: function (result) {
+												var s = '<option value="-1">Selecciona un submenú</option>';
+												for (var i = 0; i < result.length; i++) {
+														s += '<option value="' + result[i].id + '">' + result[i].nombre + '</option>';
+												}
+												$('#cla_menu').html(s);
+										}
+								});
+						}
+				});
+		});
+		</script>
+
+		<script>
+				$(document).ready(function () {
+						$.ajax({
+								type: 'GET',
+								/*url: { cla_papa: cla_papaMenu },*/
+								url: '@Url.Action("BuscarSubmenus", "Secciones")/' + cla_papaMenu,
+								success: function (result) {
+										var s = '<option value="-1">Selecciona un submenú</option>';
+										for (var i = 0; i < result.length; i++) {
+												s += '<option value="' + result[i].id + '">' + result[i].nombre + '</option>';
+										}
+										$('#cla_menu').html(s);
+								}
+						});
+				});
+		</script>
+
+
+}

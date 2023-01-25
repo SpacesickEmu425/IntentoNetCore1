@@ -1,8 +1,6 @@
 ﻿@model IntentoNetCore1.Models.DB.Menus
 @*Se basa en el modelo hecho en la parte de Models para crear un objeto con esos "atributos"*@
-@{
-		ViewData["Title"] = "Borrar menú";
-}
+@{ ViewData["Title"] = "Borrar menú"; }
 <!--Debe marcar una alerta de que se va a borrar el menú-->
 <form id="ListaSubmenus" class="new-page" action="BorrMenu" method="post">
 		<h2>Borrar menú</h2>
@@ -27,7 +25,7 @@
 				</div>
 				<div class="info">
 						<label>Link</label>
-						<input type="text" class="textito" id="link" name="link" value="@Model.link" asp-for="link"/>
+						<input type="text" class="textito" id="link" name="link" value="@Model.link" asp-for="link" />
 				</div>
 				<div class="info">
 						<label>Tipo Menú</label>
@@ -35,28 +33,28 @@
 								<!--Por definir cómo añadir el @Model.tipomenu-->
 								@if (Model.tipomenu == 1)
 								{
-										<option value="1" selected>Principal Superior</option>
-								}
-								else
-								{
-										<option value="1">Principal Superior</option>
-								}
+		<option value="1" selected>Principal Superior</option>
+ }
+else
+{
+<option value="1">Principal Superior</option>
+}
 								@if (Model.tipomenu == 2)
 								{
-										<option value="2" selected>Secundario Principal</option>
-								}
-								else
-								{
-										<option value="2">Secundario Principal</option>
-								}
+		<option value="2" selected>Secundario Principal</option>
+ }
+else
+{
+<option value="2">Secundario Principal</option>
+}
 								@if (Model.tipomenu == 3)
 								{
-										<option value="3" selected>Menu Temporal</option>
-								}
-								else
-								{
-										<option value="3">Menu Temporal</option>
-								}
+		<option value="3" selected>Menu Temporal</option>
+ }
+else
+{
+<option value="3">Menu Temporal</option>
+}
 						</select>
 				</div>
 				<div class="info">
@@ -64,20 +62,20 @@
 						<select name="activo" id="activo" class="textito" asp-for="activo">
 								@if (Model.activo == "SI")
 								{
-										<option value="SI" selected>SI</option>
-								}
-								else
-								{
-										<option value="SI">SI</option>
-								}
+		<option value="SI" selected>SI</option>
+ }
+else
+{
+<option value="SI">SI</option>
+}
 								@if (Model.activo == "NO")
 								{
-										<option value="NO" selected>NO</option>
-								}
-								else
-								{
-										<option value="NO">NO</option>
-								}
+		<option value="NO" selected>NO</option>
+ }
+else
+{
+<option value="NO">NO</option>
+}
 						</select>
 				</div>
 				<input type="submit" value="Borrar Menú" name="Borrar" class="btn add-new-page btn-dark">

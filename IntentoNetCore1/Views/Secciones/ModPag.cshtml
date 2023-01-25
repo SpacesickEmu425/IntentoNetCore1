@@ -2,9 +2,7 @@
 @*@model IEnumerable<IntentoNetCore1.Models.DB.Menus>*@
 @*
 		Se basa en el modelo hecho en la parte de Models para crear un objeto con esos "atributos"*@
-@{
-		ViewData["Title"] = "Modificar página";
-}
+@{ ViewData["Title"] = "Modificar página"; }
 <form class="new-page" action="ModPag" method="post">
 		<h2>Modificar Página</h2>
 		<hr>
@@ -30,8 +28,7 @@
 								<option selected value="@Model.cla_menupapa">Selecciona una opción</option>
 								@foreach (var menu in ViewBag.menupadre)
 								{
-										<option value="@menu.cla_menu">@menu.Menu</option>
-								}
+		<option value="@menu.cla_menu">@menu.Menu</option>}
 						</select>
 				</div>
 				<div class="info">
@@ -40,8 +37,7 @@
 								<option value="@Model.cla_menu" selected>---------------------</option>
 								@foreach (var menu in ViewBag.subMenus)
 								{
-										<option value="@menu.cla_menu">@menu.Menu</option>
-								}
+		<option value="@menu.cla_menu">@menu.Menu</option>}
 						</select>
 				</div>
 		</div>
@@ -52,20 +48,16 @@
 
 								@if (Model.publicar == "SI")
 								{
-										<option value="SI" selected>SI</option>
-								}
+		<option value="SI" selected>SI</option> }
 								else
 								{
-										<option value="SI">SI</option>
-								}
+		<option value="SI">SI</option>}
 								@if (Model.publicar == "NO")
 								{
-										<option value="NO" selected>NO</option>
-								}
+		<option value="NO" selected>NO</option> }
 								else
 								{
-										<option value="NO">NO</option>
-								}
+		<option value="NO">NO</option>}
 						</select>
 				</div>
 				<div class="info">
@@ -88,3 +80,46 @@
 		</div>
 		<input type="submit" value="Modificar página" name="Modificiar" id="Modificar" class="btn btn-dark">
 </form>
+@section scripts {
+
+		<script type="text/javascript">
+		$(document).ready(function () {
+				$('#cla_menupapa').on('change', function () {
+						$('#cla_menu option').remove();
+						var cla_papaMenu = $('#cla_menupapa option:selected').val();
+						if (cla_papaMenu != -1) {
+								$.ajax({
+										type: 'GET',
+										url: '@Url.Action("BuscarSubmenus", "Secciones")/' + cla_papaMenu,
+										success: function (result) {
+												var s = '<option value="-1">Selecciona un submenú</option>';
+												for (var i = 0; i < result.length; i++) {
+														s += '<option value="' + result[i].id + '">' + result[i].nombre + '</option>';
+												}
+												$('#cla_menu').html(s);
+										}
+								});
+						}
+				});
+		});
+		</script>
+
+		<script>
+				$(document).ready(function () {
+						$.ajax({
+								type: 'GET',
+								/*url: { cla_papa: cla_papaMenu },*/
+								url: '@Url.Action("BuscarSubmenus", "Secciones")/' + cla_papaMenu,
+								success: function (result) {
+										var s = '<option value="-1">Selecciona un submenú</option>';
+										for (var i = 0; i < result.length; i++) {
+												s += '<option value="' + result[i].id + '">' + result[i].nombre + '</option>';
+										}
+										$('#cla_menu').html(s);
+								}
+						});
+				});
+		</script>
+
+
+}
