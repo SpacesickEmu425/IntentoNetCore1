@@ -20,17 +20,17 @@ namespace IntentoNetCore1.Controllers
 
 				public IActionResult Login()
 				{
-						Usuario usuario = new Usuario();
-				//Verifica si la sesión está "abierta" y envía directamente a la página de inicio
-				if (User.Identity.IsAuthenticated)
+
+						//Verifica si la sesión está "abierta" y envía directamente a la página de inicio
+						if (User.Identity.IsAuthenticated)
 						{
 								return RedirectToAction("Index", "Home");
 						}
-				else
+						else
 						{
 								//Limpia la variable de error
 								ViewData["Error"] = null;
-								return View(usuario);
+								return View();
 						}
 				}
 
@@ -46,20 +46,23 @@ namespace IntentoNetCore1.Controllers
 						  de la tabla de la base de datos*/
 						List<Usuario> usuarios = dB.Usuario.ToList();
 
-						for (int i=0; i< usuarios.Count(); i++)
+						for (int i = 0; i < usuarios.Count(); i++)
 						{
-								if (Nombre == usuarios[i].Nombre && Contra == usuarios[i].Contra)
+								if (Nombre == usuarios[i].Nombre)
 								{
-										identity = new ClaimsIdentity(new[]
-															 {
+										if (Contra == usuarios[i].Contra)
+										{
+												identity = new ClaimsIdentity(new[]
+																	 {
 										new Claim(ClaimTypes.Name,Nombre),
 											new Claim(ClaimTypes.NameIdentifier,Contra)
 								}, CookieAuthenticationDefaults.AuthenticationScheme);
-										isAuthenticate = true;
-										/*Se le asigna el rol de administrador, en este caso, mas adelante, se va a asignar el 
-										 * rol a cada usuario*/
-										identity.AddClaim(new Claim(ClaimTypes.Role, "administrador"));
+												isAuthenticate = true;
+												/*Se le asigna el rol de administrador, en este caso, mas adelante, se va a asignar el 
+												 * rol a cada usuario*/
+												identity.AddClaim(new Claim(ClaimTypes.Role, "administrador"));
 
+										}
 								}
 						}
 						//Si se ha autenticado:..
@@ -76,7 +79,7 @@ namespace IntentoNetCore1.Controllers
 						}
 						//Crea una label que aparece cuando hay un error
 						ViewData["Error"] = "Los datos ingresados no son correctos";
-						return View(usuarios);
+						return View();
 				}
 				//LogOut, hace que te redirija a la vista de Login
 				public IActionResult Logout()

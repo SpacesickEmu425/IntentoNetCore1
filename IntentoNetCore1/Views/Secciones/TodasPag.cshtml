@@ -4,6 +4,9 @@
 @{
 		ViewData["Title"] = "Todas las páginas";
 }
+<div id="cargando" class="loading">
+				Miau
+</div>
 <form class="new-page">
 		<h2>Todas las páginas</h2>
 		<hr>
@@ -83,3 +86,10 @@
 				}
 		</div>*@
 </form>
+@section scripts {
+<script type="text/javascript">
+		$(document).ready(function () {
+				$('#cargando').css('display', 'none');
+		});
+</script>
+}
