@@ -153,6 +153,13 @@ namespace IntentoNetCore1.Controllers
 
 						return View(contenido);
 				}
+				public IActionResult ModificarHtmlContenido(int ID_Contenido)//Recibe la clave del contenido a modificar
+				{
+						Contenido contenido = dB.Contenido.Where(m => m.ID_Contenido == ID_Contenido).FirstOrDefault();
+
+						return View(contenido);
+				}
+
 				public IActionResult ModPag(int cla_pag)//Recibe la clave de la página a modificar
 				{
 						Paginas datos = new Paginas();

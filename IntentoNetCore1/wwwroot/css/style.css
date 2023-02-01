@@ -449,5 +449,6 @@ textarea {
 		display: flex;
 		position: relative;
 		width: -webkit-fill-available;
+		width: -moz-fit-content;
 		flex-direction: row-reverse;
 }
