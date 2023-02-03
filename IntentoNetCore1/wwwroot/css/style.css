@@ -14,7 +14,6 @@
 		--bg-color-btn-login-active: #cfe2f3;
 }
 
-/*AAAG*/
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
@@ -31,6 +30,10 @@
 
 .transition {
 		transition: background-color 0.08s linear 0.02s;
+}
+
+.btn-dark {
+		margin-top:.5rem;
 }
 
 /*BARRA DE NAVEGACIÓN*/
@@ -333,16 +336,20 @@ h2 {
 /* PÁGINA NUEVA, MODIFICAR Y BORRAR */
 .new-page {
 		text-align: left;
+		display: flex;
+		width: 50%;
 		background-color: var(--bg-color-forms);
 		margin: auto;
 		padding: 2rem;
 		border-radius: 5px;
-		/*box-shadow: 7px 13px 37px #000;*/
 		margin-bottom: 3rem;
+		flex-direction: column;
+		box-shadow: 15px 20px 28px 4px rgb(0 0 0 / 16%);
 }
 
 .info {
-		display: block;
+		display: flex;
+		flex-direction: column;
 }
 
 .sect {
@@ -392,6 +399,16 @@ h4 .alert {
 		}
 }
 
+.imgBck {
+		position: absolute;
+		z-index: -1;
+}
+
+.logo-trans {
+		max-width: 100%;
+		height: auto;
+		box-sizing: border-box;
+}
 /*Sección de conenido nueva*/
 textarea {
 		height: 10rem;
@@ -451,4 +468,9 @@ textarea {
 		width: -webkit-fill-available;
 		width: -moz-available;
 		flex-direction: row-reverse;
+}
+
+.tabl-content {
+		width: -webkit-fill-available;
+		width: -moz-available;
 }

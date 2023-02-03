@@ -4,7 +4,9 @@
 @{ //Calcula cuál será la cla_menu del nuevo menú
 								var maximo = (from li in Model.menus select li.cla_menu).Max();
 								maximo = (int)maximo + 1; }
-
+<div class="imgBck">
+		<img class="logo-trans" src="https://epagosmunicipio.ags.gob.mx/assets/2023/LogoMuni2023.png" />
+</div>
 <form class="new-page" action="AgrMenu" method="post">
 		<h2> Agregar Menú nuevo</h2>
 		<hr />
