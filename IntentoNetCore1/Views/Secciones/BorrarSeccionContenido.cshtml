@@ -6,7 +6,7 @@
 <div class="imgBck">
 		<img class="logo-trans" src="https://epagosmunicipio.ags.gob.mx/assets/2023/LogoMuni2023.png" />
 </div>
-<h4 class="alert bg-warning">PRECAUCIÓN, ESTÁ A PUNTO DE BORRAR ESTA SECCIÓN DE CONTENIDO</h4>
+
 <form class="new-page" action="BorrContenido" method="post">
 		<h2>Borrar Sección de contenido nueva</h2>
 		<hr />
@@ -18,23 +18,51 @@
 				</div>
 				<div class="info">
 						<label>Orden que se presenta este contenido dentro de la página</label>
-						<input type="text" class="textito" name="orden" value=@Model.Orden />
+						<input type="text" class="textito" name="orden" value=@Model.Orden readonly/>
 				</div>
 				<div class="info">
 						<label>Título del contenido</label>
-						<input type="text" class="textito" name="nombre_menu" value=@Model.Titulo />
+						<input type="text" class="textito" name="nombre_menu" value=@Model.Titulo readonly/>
 				</div>
 				<div class="info">
 						<textarea class="textito" id="contenido" name="Contenido" placeholder="Agregue el contenido aquí">@Model.contenido</textarea>
 				</div>
-				<input type="submit" value="Borrar Sección de contenido" name="Borrar" class="btn btn-dark">
+				<input type="submit" value="Borrar Sección de contenido" name="Borrar" class="btn btn-warning">
 		</div>
 </form>
 @section scripts {
 
 		<script src="~/js/ckeditor/ckeditor.js"></script>
-		<script type="text/javascript">$(document).ready(function () {
+		<script type="text/javascript">
+		$(document).ready(function () {
 						CKEDITOR.replace('contenido');
 				});</script>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+		<script>
+				$.alert("PRECAUCIÓN, ESTÁ A PUNTO DE BORRAR ESTA SECCIÓN DE CONTENIDO")
+		</script>
+
+		<script>
+				$('input[type=submit]').confirm({
+						title: 'Advertencia',
+						content: 'Está a punto de borrar esta página junto con todo contenido dependiente de ella ¿Está seguro de querer proceder?',
+						buttons: {
+								Cancelar: function () {
+										//Nada
+								},
+								Eliminar: {
+										text: 'Eliminar',
+										btnClass: 'btn-red',
+										keys: ['enter', 'shift'],
+										action: function () {
+												$('.new-page').submit();
+												$.alert('@Model.Titulo ha sido eliminada');
+										}
+								}
+						}
+				});
+		</script>
+
 
 }
