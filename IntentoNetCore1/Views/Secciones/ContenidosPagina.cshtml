@@ -48,14 +48,22 @@
 						@item.Titulo
 				</td>
 				<td>
-						@if (item.contenido.Length > 149)
+						@if (item.contenido is null)
 						{
-								@item.contenido.Substring(0, 150);
+								<p>NULL</p>
 						}
 						else
 						{
-								@item.contenido;
+								@if (item.contenido.Length > 149)
+								{
+										@item.contenido.Substring(0, 150);
+								} 
+								else
+								{
+										@item.contenido;
+								}
 						}
+
 				</td>
 				<td>
 						<a class="btn btn-dark" type="submit" href="@Url.Action("ModificarSeccionContenido","Secciones", new { ID_Contenido = item.ID_Contenido })">

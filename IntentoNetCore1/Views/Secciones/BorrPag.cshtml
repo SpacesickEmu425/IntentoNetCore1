@@ -10,18 +10,19 @@
 		<h2>Modificar Página</h2>
 		<hr>
 		<!--Toda la info debe ser tomada de la tabla-->
+				<input style="display:none" asp-for="@Model.cla_pag" />
 		<div class="sect" id="titles">
 				<div class="info">
 						<label>Título que aparecerá en el browser</label>
-						<input class="textito" type="text" id="TituloBrowser" name="TituloBrowser" value="@Model.TituloBrowser" readonly>
+						<input class="textito" type="text" id="TituloBrowser" name="TituloBrowser" value="@Model.TituloBrowser" disabled>
 				</div>
 				<div class="info">
 						<label>Título o encabezado de la pagina</label>
-						<input class="textito" type="text" id="TituloEncabeza" name="TituloEncabeza" value="@Model.TituloEncabeza" readonly>
+						<input class="textito" type="text" id="TituloEncabeza" name="TituloEncabeza" value="@Model.TituloEncabeza" disabled>
 				</div>
 				<div class="info">
 						<label>A qué MENÚ PRINCIPAL al que pertenece</label>
-						<select class="textito" id="cla_menupapa" name="cla_menupapa">
+						<select class="textito" id="cla_menupapa" name="cla_menupapa" disabled>
 								@foreach (var menu in ViewBag.menupadre)
 								{
 		<option value="@menu.cla_menu">@menu.Menu</option>}
@@ -29,7 +30,7 @@
 				</div>
 				<div class="info">
 						<label>A que sección de MENÚ pertenece la página</label>
-						<select class="textito" id="cla_menu" name="cla_menu" asp-for="@Model.cla_menu">
+						<select class="textito" id="cla_menu" name="cla_menu" asp-for="@Model.cla_menu" disabled>
 								<option selected>---------------------</option>
 						</select>
 				</div>
@@ -37,42 +38,42 @@
 		<div class="sect" id="dates">
 				<div class="info">
 						<label>Esta en Publicación</label>
-						<select name="publicar" class="textito" id="publicar">
+						<select name="publicar" class="textito" id="publicar" disabled>
 
 								@if (Model.publicar == "SI")
 								{
-		<option value="SI" selected>SI</option>
- }
-else
-{
-<option value="SI">SI</option>
-}
-								@if (Model.publicar == "NO")
+										<option value="SI" selected>SI</option>
+								}
+								else
 								{
-		<option value="NO" selected>NO</option>
- }
-else
-{
-<option value="NO">NO</option>
-}
+										<option value="SI">SI</option>
+								}
+								@if (Model.publicar == "NO")
+										{
+												<option value="NO" selected>NO</option>
+										}
+								else
+								{
+										<option value="NO">NO</option>
+								}
 						</select>
 				</div>
 				<div class="info">
 						<label>Fecha de Publicación	</label>
 						<input type="datetime" name="fecha_publicacion" id="fecha_publicacion" class="textito"
-									 placeholder="DD/MM/AAAA" value=@Model.fecha_publicacion readonly>
+									 placeholder="DD/MM/AAAA" value=@Model.fecha_publicacion disabled>
 				</div>
 				<div class="info">
 						<label>Hora de Publicación</label>
-						<input type="time" name="hora_publicacion" id="hora_publicacion" class="textito" placeholder="09:00" value=@Model.hora_publicacion readonly>
+						<input type="time" name="hora_publicacion" id="hora_publicacion" class="textito" placeholder="09:00" value=@Model.hora_publicacion disabled>
 				</div>
 				<div class="info">
 						<label>Fecha de actualización</label>
-						<input type="datetime" name="fecha_actualizacion" id="fecha_actualizacion" placeholder="DD/MM/AAAA" class="textito" value=@Model.fecha_actualizacion readonly>
+						<input type="datetime" name="fecha_actualizacion" id="fecha_actualizacion" placeholder="DD/MM/AAAA" class="textito" value=@Model.fecha_actualizacion disabled>
 				</div>
 				<div class="info">
 						<label>Fuente de Información</label>
-						<input type="text" name="fuentepublica" id="fuente_publicacion" class="textito" value=@Model.fuente_publicacion readonly>
+						<input type="text" name="fuentepublica" id="fuente_publicacion" class="textito" value=@Model.fuente_publicacion disabled>
 				</div>
 		</div>
 		<input type="submit" value="Borrar página" name="Borrar" id="Borrar" class="btn btn-danger">
@@ -137,7 +138,7 @@ else
 								},
 								Eliminar: {
 										text: 'Eliminar',
-										btnClass: 'btn-red',
+										btnClass: 'btn-danger',
 										keys: ['enter', 'shift'],
 										action: function () {
 												$('.new-page').submit();

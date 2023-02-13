@@ -20,7 +20,7 @@ namespace IntentoNetCore1.Controllers
 				{
 						dB = _db;
 				}
-
+				//TABLAS DE REGISTROS
 				public IActionResult TodasPag(/*int option = 0*/)
 				{
 						//if (option != 0)
@@ -60,6 +60,12 @@ namespace IntentoNetCore1.Controllers
 						List<Contenido> contenidos = dB.Contenido.Where(m => m.Cla_pag == cla_pag).ToList();
 						ViewBag.Pagina = dB.Paginas.Where(m => m.cla_pag == cla_pag).FirstOrDefault();
 						return View(contenidos);
+				}
+
+				public IActionResult PaginasHuerfanas(int cla_menu)
+				{
+						List<Paginas> paginashuer = dB.Paginas.Where(m => m.cla_menu == cla_menu).ToList();//Hace una consulta a la tabla Menus de la base de datos y la guarda en la clase (tipo lista) Menu
+						return View(paginashuer);
 				}
 
 				//Sección AGREGAR
@@ -198,14 +204,20 @@ namespace IntentoNetCore1.Controllers
 						pag.cla_pag = maximo;
 						dB.Add(pag);
 						dB.SaveChanges();
-						return RedirectToAction("TodasPag", "Secciones");
+						return RedirectToAction("AgregarSeccionContenidoNueva", "Secciones", new { cla_pag = pag.cla_pag });
 				}
 				[HttpPost]
 				public ActionResult BorrPag(Paginas pag)
 				{
 						List<Contenido> cont = dB.Contenido.Where(m => m.Cla_pag == pag.cla_pag).ToList();
-						dB.Remove(cont);
+						if(cont.Count() > 0)
+						{
+								for (int i = 0; i < cont.Count; i++) {
+										dB.Remove(cont[i]);
+								}
+						}
 						dB.Remove(pag);
+						dB.SaveChanges();
 						return RedirectToAction("TodasPag", "Secciones");
 				}
 				//AtionResult MODIFICAR, AGREGAR Y BORRAR MENÚ

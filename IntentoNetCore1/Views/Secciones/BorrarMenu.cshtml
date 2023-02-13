@@ -11,64 +11,65 @@
 		<div class="sect">
 				<div class="info">
 						<label>Folio Automático de Esta Sección (único):</label>
-						<input type="text" readonly class="textito" id="cla_menu" name="cla_menu" value="@Model.cla_menu" asp-for="cla_menu" />
+						<input type="text" style="display:none" class="textito" id="cla_menu" name="cla_menu" value="@Model.cla_menu" asp-for="cla_menu" />
+						<input type="text" disabled class="textito" id="cla_menu" name="cla_menu" value="@Model.cla_menu" asp-for="cla_menu" />
 						<!--Tanto este valor como los demás deben ser tomados del registro del menú a modificar-->
 				</div>
 				<div class="info">
 						<label>Orden que se presenta este contenido dentro de la página</label>
-						<input type="text" class="textito" id="orden" name="orden" value="@Model.orden" asp-for="orden" readonly />
+						<input disabled type="text" class="textito" id="orden" name="orden" value="@Model.orden" asp-for="orden" readonly />
 				</div>
 				<div class="info">
 						<label>Nombre del menú</label>
-						<input type="text" class="textito" id="Menu" name="Menu" value="@Model.Menu" asp-for="Menu" readonly />
+						<input disabled type="text" class="textito" id="Menu" name="Menu" value="@Model.Menu" asp-for="Menu" readonly />
 				</div>
 				<div class="info">
 						<label>Descripción larga (Opcional)</label>
-						<input type="text" class="textito" id="Desc_Larga" name="Desc_Larga" value="@Model.Desc_Larga" asp-for="Desc_Larga" readonly />
+						<input disabled type="text" class="textito" id="Desc_Larga" name="Desc_Larga" value="@Model.Desc_Larga" asp-for="Desc_Larga" readonly />
 				</div>
 				<div class="info">
 						<label>Link</label>
-						<input type="text" class="textito" id="link" name="link" value="@Model.link" asp-for="link" readonly />
+						<input disabled type="text" class="textito" id="link" name="link" value="@Model.link" asp-for="link" readonly />
 				</div>
 				<div class="info">
 						<label>Tipo Menú</label>
-						<select name="tipomenu" id="tipomenu" class="textito" asp-for="tipomenu" readonly>
+						<select disabled name="tipomenu" id="tipomenu" class="textito" asp-for="tipomenu" readonly>
 								<!--Por definir cómo añadir el @Model.tipomenu-->
 								@if (Model.tipomenu == 1)
 								{
-		<option value="1" selected>Principal Superior</option> }
+										<option value="1" selected>Principal Superior</option> }
 								else
 								{
-		<option value="1">Principal Superior</option>}
+										<option value="1">Principal Superior</option>}
 								@if (Model.tipomenu == 2)
 								{
-		<option value="2" selected>Secundario Principal</option> }
+										<option value="2" selected>Secundario Principal</option> }
 								else
 								{
-		<option value="2">Secundario Principal</option>}
+										<option value="2">Secundario Principal</option>}
 								@if (Model.tipomenu == 3)
 								{
-		<option value="3" selected>Menu Temporal</option> }
+										<option value="3" selected>Menu Temporal</option> }
 								else
 								{
-		<option value="3">Menu Temporal</option>}
+										<option value="3">Menu Temporal</option>}
 						</select>
 				</div>
 				<div class="info">
 						<label>Menu ACTIVO</label>
-						<select name="activo" id="activo" class="textito" asp-for="activo" readonly>
+						<select disabled name="activo" id="activo" class="textito" asp-for="activo" readonly>
 								@if (Model.activo == "SI")
 								{
-		<option value="SI" selected>SI</option> }
+										<option value="SI" selected>SI</option> }
 								else
 								{
-		<option value="SI">SI</option>}
+										<option value="SI">SI</option>}
 								@if (Model.activo == "NO")
 								{
-		<option value="NO" selected>NO</option> }
+										<option value="NO" selected>NO</option> }
 								else
 								{
-		<option value="NO">NO</option>}
+										<option value="NO">NO</option>}
 						</select>
 				</div>
 				<input type="submit" value="Borrar Menú" name="Borrar" class="btn btn-danger">
@@ -77,9 +78,7 @@
 
 @section scripts {
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
-		<script>
-				$.alert("PRECAUCIÓN, SE BORRARÁ TAMBIÉN LAS PÁGINAS RELACIONADAS")@*También se debe hacer el borrado de todos los contenidos de ésas páginas*@
-		</script>		
+				
 <script>
 				$('input[type=submit]').confirm({
 						title: 'Advertencia',
@@ -90,7 +89,7 @@
 								},
 								Eliminar: {
 										text: 'Eliminar',
-										btnClass: 'btn-red',
+										btnClass: 'btn-danger',
 										keys: ['enter', 'shift'],
 										action: function () {
 												$('.new-page').submit();

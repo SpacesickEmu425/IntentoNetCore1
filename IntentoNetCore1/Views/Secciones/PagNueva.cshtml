@@ -12,11 +12,11 @@
 		<div class="sect" id="titles">
 				<div class="info">
 						<label>Título que aparecerá en el browser</label>
-						<input class="textito" type="text" id="TituloBrowser" name="TituloBrowser" asp-for="@Model.TituloBrowser">
+						<input class="textito" type="text" id="TituloBrowser" name="TituloBrowser" asp-for="@Model.TituloBrowser" required>
 				</div>
 				<div class="info">
 						<label>Título o encabezado de la pagina</label>
-						<input class="textito" type="text" id="TituloEncabeza" name="TituloEncabeza" asp-for="@Model.TituloEncabeza">
+						<input class="textito" type="text" id="TituloEncabeza" name="TituloEncabeza" asp-for="@Model.TituloEncabeza" required>
 				</div>
 				<div class="info">
 						<label>A qué MENÚ PRINCIPAL al que pertenece</label>
@@ -49,16 +49,16 @@
 				</div>
 				<div class="info">
 						<label>Fecha de Publicación	</label>
-						<input type="datetime" name="fecha_publicacion" id="fecha_publicacion" class="textito"
-									 placeholder="DD/MM/AAAA" asp-for="@Model.fecha_publicacion">
+						<input  type="datetime-local" name="fecha_publicacion" id="fecha_publicacion" class="textito"
+									 placeholder="DD/MM/AAAA" asp-for="@Model.fecha_publicacion" required>
 				</div>
 				<div class="info">
 						<label>Hora de Publicación</label>
-						<input type="time" name="hora_publicacion" id="hora_publicacion" class="textito" placeholder="09:00" asp-for="@Model.hora_publicacion">
+						<input type="time" name="hora_publicacion" id="hora_publicacion" class="textito" placeholder="09:00" asp-for="@Model.hora_publicacion" required>
 				</div>
 				<div class="info">
 						<label>Fecha de actualización</label>
-						<input type="datetime" name="fecha_actualizacion" id="fecha_actualizacion" placeholder="DD/MM/AAAA" class="textito" asp-for="@Model.fecha_actualizacion">
+						<input  type="datetime-local" name="fecha_actualizacion" id="fecha_actualizacion" placeholder="DD/MM/AAAA" class="textito" asp-for="@Model.fecha_actualizacion" required>
 				</div>
 				<div class="info">
 						<label>Fuente de Información</label>

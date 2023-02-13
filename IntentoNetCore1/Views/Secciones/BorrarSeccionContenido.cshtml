@@ -14,20 +14,20 @@
 				<div class="info">
 						<label>Folio Automático de Esta Sección (único):</label>
 						<input disabled readonly type="text" class="textito" value="@Model.ID_Contenido" /><!--Tanto este valor como los demás deben ser tomados del registro del menú a modificar-->
-						<input display="none" readonly type="text" class="textito" name="ID_Contenido" id="ID_Contenido" asp-for="ID_Contenido" value="@Model.ID_Contenido" /><!--Tanto este valor como los demás deben ser tomados del registro del menú a modificar-->
+						<input style="display:none"  type="text" class="textito" name="ID_Contenido" id="ID_Contenido" asp-for="ID_Contenido" value="@Model.ID_Contenido" /><!--Tanto este valor como los demás deben ser tomados del registro del menú a modificar-->
 				</div>
 				<div class="info">
 						<label>Orden que se presenta este contenido dentro de la página</label>
-						<input type="text" class="textito" name="orden" value=@Model.Orden readonly/>
+						<input disabled type="text" class="textito" name="orden" value=@Model.Orden readonly/>
 				</div>
 				<div class="info">
 						<label>Título del contenido</label>
-						<input type="text" class="textito" name="nombre_menu" value=@Model.Titulo readonly/>
+						<input disabled type="text" class="textito" name="nombre_menu" value=@Model.Titulo readonly/>
 				</div>
 				<div class="info">
-						<textarea class="textito" id="contenido" name="Contenido" placeholder="Agregue el contenido aquí">@Model.contenido</textarea>
+						<textarea disabled class="textito" id="contenido" name="Contenido" placeholder="Agregue el contenido aquí">@Model.contenido</textarea>
 				</div>
-				<input type="submit" value="Borrar Sección de contenido" name="Borrar" class="btn btn-warning">
+				<input disabled type="submit" value="Borrar Sección de contenido" name="Borrar" class="btn btn-warning">
 		</div>
 </form>
 @section scripts {
@@ -53,7 +53,7 @@
 								},
 								Eliminar: {
 										text: 'Eliminar',
-										btnClass: 'btn-red',
+										btnClass: 'btn-danger',
 										keys: ['enter', 'shift'],
 										action: function () {
 												$('.new-page').submit();

@@ -1,27 +1,20 @@
 ﻿@model IEnumerable<IntentoNetCore1.Models.DB.Menus>
-@*Recibe la lista de objetos basados en el modelo Menus. IEnumerable sirve para ser capaz de manejar las listas*@ 
+@*Recibe la lista de objetos basados en el modelo Menus. IEnumerable sirve para ser capaz de manejar las listas*@
 @*
 		For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
-@{
-		ViewData["Title"] = "Submenús de " + ViewBag.menuApa.Menu;
-}
+@{ ViewData["Title"] = "Submenús de " + ViewBag.menuApa.Menu; }
 <form class="new-page tabl-content">
-		@if (ViewBag.Alert != null)
-		{
-				<script>
-						alert("@ViewBag.Alert Para borrar este menú, primero tiene que eliminar sus submenús.");
-				</script>
-		}
-<div class="Titulo">
-		<div class="ContenidoTitulo">
-				<h2>Submenús</h2>
+		
+		<div class="Titulo">
+				<div class="ContenidoTitulo">
+						<h2>Submenús</h2>
+				</div>
+				<div class="btn-agregarEnTabla">
+						<a class="btn btn-dark" type="submit" href="@Url.Action("AgregarSubMenuNuevo","Secciones", new { cla_menu = ViewBag.menuApa.cla_menu })">Agregar Nuevo submenú</a>
+				</div>
+				<hr>
 		</div>
-		<div class="btn-agregarEnTabla">
-				<a class="btn btn-dark" type="submit" href="@Url.Action("AgregarSubMenuNuevo","Secciones", new { cla_menu = ViewBag.menuApa.cla_menu })">Agregar Nuevo submenú</a>
-		</div>
-		<hr>
-</div>
 		<div class="table-responsive">
 				<table id="tabla" class="table table-striped table-bordered table-hover">
 						<thead class="thead-dark">
@@ -53,52 +46,49 @@
 								<!--Recorre el modelo de la clase menus creada en el controldador-->
 								@foreach (var item in Model)
 								{
-										<tr>
-												<td>
-														@item.cla_menu
-												</td>
-												<td>
-														@item.Menu
-												</td>
-												<td>
-														@if (item.tipomenu == 1)
-														{
-																<p>Menu Principal</p>
-														}
-														else
-														{
-																if (item.tipomenu == 2)
-																{
-																		<p>Menu secundario</p>
-																}
-																else
-																{
-																		<p>Menú Temporal</p>
-																}
-														}
-												</td>
-												<td>
-														@item.link
-												</td>
-												<td>
-														<a class="btn btn-dark" type="submit" href="@Url.Action("ModificarMenu", "Secciones", new { cla_menu = item.cla_menu })">Editar</a>
-												</td>
-												<td>
-														<a class="btn btn-danger" type="submit" href="@Url.Action("ComprobarSubmenus","Secciones", new { cla_menu = item.cla_menu })">Borrar</a>
-												</td>
-												<td>
-														<a class="btn btn-dark" type="submit" href="@Url.Action("AgregarSubMenuNuevo","Secciones", new { cla_menu = item.cla_menu })">Agregar submenú</a>
-												</td>
-										</tr>
+		<tr>
+				<td>
+						@item.cla_menu
+				</td>
+				<td>
+						@item.Menu
+				</td>
+				<td>
+						@if (item.tipomenu == 1)
+						{
+<p>Menu Principal</p> }
+								else
+								{
+										if (item.tipomenu == 2)
+										{
+<p>Menu secundario</p> }
+										else
+										{
+<p>Menú Temporal</p>}
 								}
+				</td>
+				<td>
+						@item.link
+				</td>
+				<td>
+						<a class="btn btn-dark" type="submit" href="@Url.Action("ModificarMenu", "Secciones", new { cla_menu = item.cla_menu })">Editar</a>
+				</td>
+				<td>
+						<a class="btn btn-danger" type="submit" href="@Url.Action("ComprobarSubmenus","Secciones", new { cla_menu = item.cla_menu })">Borrar</a>
+				</td>
+				<td>
+						<a class="btn btn-dark" type="submit" href="@Url.Action("AgregarSubMenuNuevo","Secciones", new { cla_menu = item.cla_menu })">Agregar submenú</a>
+				</td>
+		</tr>}
 						</tbody>
 				</table>
 		</div>
 </form>
-<script type="text/javascript">
-		$(document).ready(function () {
-				$('#ListaSubmenus').ready(function () {
-						alert("Para borrar este menú, primero tienes que borrar sus submenús");
-				});
-		});
-</script>
+
+@section scripts{
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+		<script>
+				$.alert("Para borrar este menú, primero tienes que borrar sus submenús");
+		</script>
+}
