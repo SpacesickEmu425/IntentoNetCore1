@@ -25,7 +25,8 @@
 								<option value="-1">Selecciona una opción</option>
 								@foreach (var menu in ViewBag.menupadre)
 								{
-		<option value="@menu.cla_menu">@menu.Menu</option>						}
+										<option value="@menu.cla_menu">@menu.Menu</option>
+								}
 						</select>
 				</div>
 				<div class="info">
@@ -39,7 +40,7 @@
 		<div class="sect" id="dates">
 				<div class="info">
 						<label>Esta en Publicación</label>
-						<select name="publicar" class="textito" id="publicar">
+						<select name="publicar" class="textito" id="publicar" asp-for="@Model.publicar">
 
 								<option value="SI" selected>SI</option>
 
@@ -49,7 +50,7 @@
 				</div>
 				<div class="info">
 						<label>Fecha de Publicación	</label>
-						<input  type="datetime-local" name="fecha_publicacion" id="fecha_publicacion" class="textito"
+						<input type="datetime-local" name="fecha_publicacion" id="fecha_publicacion" class="textito"
 									 placeholder="DD/MM/AAAA" asp-for="@Model.fecha_publicacion" required>
 				</div>
 				<div class="info">
@@ -58,14 +59,14 @@
 				</div>
 				<div class="info">
 						<label>Fecha de actualización</label>
-						<input  type="datetime-local" name="fecha_actualizacion" id="fecha_actualizacion" placeholder="DD/MM/AAAA" class="textito" asp-for="@Model.fecha_actualizacion" required>
+						<input type="datetime-local" name="fecha_actualizacion" id="fecha_actualizacion" placeholder="DD/MM/AAAA" class="textito" asp-for="@Model.fecha_actualizacion" required>
 				</div>
 				<div class="info">
 						<label>Fuente de Información</label>
 						<input type="text" name="fuente_publicacion" id="fuente_publicacion" class="textito" asp-for="@Model.fuente_publicacion">
 				</div>
 		</div>
-		<input type="submit" value="Crear página" name="NuevaPag" id="NuevaPag" class="btn btn-dark">
+		<input disabled type="submit" value="Crear página" name="NuevaPag" id="NuevaPag" class="btn btn-dark">
 </form>
 @section scripts {
 
@@ -84,12 +85,26 @@
 														s += '<option value="' + result[i].id + '">' + result[i].nombre + '</option>';
 												}
 												$('#cla_menu').html(s);
+												if ($('#cla_menu option:selected').val() == -1) {
+														$('input[type=submit]').attr('disabled', 'disabled');
+												} else {
+														$('input[type=submit]').removeAttr("disabled");
+												}
 										}
 								});
+						}
+						else {
+								$('input[type=submit]').attr('disabled', 'disabled');
 						}
 				});
 		});
 		</script>
+
+		<script>
+				$(document).on('change', '#cla_menu', function (event) {
+						$('input[type=submit]').removeAttr("disabled");
+				});
+				</script>
 
 		<script>
 				$(document).ready(function () {
@@ -107,6 +122,4 @@
 						});
 				});
 		</script>
-
-
 }

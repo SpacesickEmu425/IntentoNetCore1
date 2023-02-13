@@ -31,10 +31,10 @@
 												Editar
 										</th>
 										<th scope="col">
-												Borrar
+												Agregar Submenú
 										</th>
 										<th scope="col">
-												Agregar Submenú
+												Borrar
 										</th>
 								</tr>
 						</thead>
@@ -42,43 +42,40 @@
 								<!--Recorre la lista recibida de modelos (de la clase menus) creada en el controldador-->
 								@foreach (var item in Model)
 								{
-										<tr>
-												<td>
-														@item.cla_menu
-												</td>
-												<td>
-														@item.Menu
-												</td>
-												<td>
-														@if (item.tipomenu == 1)
-														{
-																<p>Menu Principal</p>
-														}
-														else
-														{
-																if (item.tipomenu == 2)
-																{
-																		<p>Menu secundario</p>
-																}
+								<tr>
+										<td>
+												@item.cla_menu
+										</td>
+										<td>
+												@item.Menu
+										</td>
+										<td>
+												@if (item.tipomenu == 1)
+												{
+								<p>Menu Principal</p> }
 																else
 																{
-																		<p>Menú Temporal</p>
+																		if (item.tipomenu == 2)
+																		{
+								<p>Menu secundario</p> }
+																		else
+																		{
+								<p>Menú Temporal</p>}
 																}
-														}
-												</td>
-												<td>
-														@item.link
-												</td>
-												<td>
-														<a class="btn btn-dark" type="submit" href="@Url.Action("ModificarMenu", "Secciones", new { cla_menu = item.cla_menu })">Editar</a>
-												</td>
-												<td>
-														<a class="btn btn-danger" type="submit" href="@Url.Action("ComprobarSubmenus","Secciones", new { cla_menu = item.cla_menu })">Borrar</a>
-												</td>
-												<td>
-														<a class="btn btn-dark" type="submit" href="@Url.Action("AgregarSubMenuNuevo","Secciones", new { cla_menu = item.cla_menu })">Agregar submenú</a>
-												</td>
-										</tr>
+										</td>
+										<td>
+												@item.link
+										</td>
+										<td>
+												<a class="btn btn-dark" type="submit" href="@Url.Action("ModificarMenu", "Secciones", new { cla_menu = item.cla_menu })">Editar</a>
+										</td>
+										<td>
+												<a class="btn btn-dark" type="submit" href="@Url.Action("AgregarSubMenuNuevo","Secciones", new { cla_menu = item.cla_menu })">Agregar submenú</a>
+										</td>
+										<td>
+												<a class="btn btn-danger" type="submit" href="@Url.Action("ComprobarSubmenus","Secciones", new { cla_menu = item.cla_menu })">Borrar</a>
+										</td>
+								</tr>
 								}
 						</tbody>
 				</table>
