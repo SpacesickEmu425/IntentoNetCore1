@@ -50,16 +50,16 @@
 				</div>
 				<div class="info">
 						<label>Fecha de Publicación	</label>
-						<input type="datetime-local" name="fecha_publicacion" id="fecha_publicacion" class="textito"
-									 placeholder="DD/MM/AAAA" asp-for="@Model.fecha_publicacion" required>
+						<input required type="datetime-local" name="fecha_publicacion" id="fecha_publicacion" class="textito"
+									 placeholder="DD/MM/AAAA" asp-for=@Model.fecha_publicacion>
 				</div>
 				<div class="info">
 						<label>Hora de Publicación</label>
-						<input type="time" name="hora_publicacion" id="hora_publicacion" class="textito" placeholder="09:00" asp-for="@Model.hora_publicacion" required>
+						<input required type="time" name="hora_publicacion" id="hora_publicacion" class="textito" placeholder="09:00" asp-for=@Model.hora_publicacion>
 				</div>
 				<div class="info">
 						<label>Fecha de actualización</label>
-						<input type="datetime-local" name="fecha_actualizacion" id="fecha_actualizacion" placeholder="DD/MM/AAAA" class="textito" asp-for="@Model.fecha_actualizacion" required>
+						<input required type="datetime-local" name="fecha_actualizacion" id="fecha_actualizacion" placeholder="DD/MM/AAAA" class="textito" asp-for=@Model.fecha_actualizacion>
 				</div>
 				<div class="info">
 						<label>Fuente de Información</label>

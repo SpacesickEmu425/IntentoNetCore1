@@ -216,7 +216,7 @@ input[type="checkbox" i] {
 		margin-left: -1rem;
 		margin-right: -1rem;
 		padding: 1rem;
-		box-shadow: 8px 5px 30px #444;
+		box-shadow: 3px 2px 7px #444;
 }
 
 h2 {
@@ -225,11 +225,16 @@ h2 {
 
 .textito {
 		margin-bottom: .9rem;
-		width: 13rem;
+		background-color: transparent;
+		width:fit-content;
 		padding: .5rem;
 		user-select: none;
 		border-radius: 5px;
 		outline: none;
+}
+
+select.textito {
+		width:100%;
 }
 
 .btn-darku {
@@ -291,7 +296,8 @@ h2 {
 
 .credentials .textito:focus {
 		border: transparent;
-		background-color:transparent;
+		background:transparent!important;
+		background-color:transparent!important;
 		background-image: linear-gradient(to top, var(--bg-color-btn-login) 2px, var(--bg-color-forms) 2px);
 }
 
@@ -372,11 +378,11 @@ h2 {
 }
 
 input[type="time" i] {
-		width: auto;
+		width: fit-content !important;
 }
 
-input[type="date" i] {
-		width: auto;
+input[type="datetime-local" i] {
+		width: fit-content!important;
 }
 
 select {
