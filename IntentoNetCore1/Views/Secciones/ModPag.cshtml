@@ -17,11 +17,11 @@
 				</div>
 				<div class="info">
 						<label>Título que aparecerá en el browser</label>
-						<input class="textito" type="text" id="TituloBrowser" name="TituloBrowser" value="@Model.TituloBrowser">
+						<input class="textito" type="text" id="TituloBrowser" name="TituloBrowser" asp-for="@Model.TituloBrowser">
 				</div>
 				<div class="info">
 						<label>Título o encabezado de la pagina</label>
-						<input class="textito" type="text" id="TituloEncabeza" name="TituloEncabeza" value="@Model.TituloEncabeza">
+						<input class="textito" type="text" id="TituloEncabeza" name="TituloEncabeza" asp-for="@Model.TituloEncabeza">
 				</div>
 				<div class="info">
 						<label>A qué MENÚ PRINCIPAL al que pertenece</label>
@@ -31,7 +31,8 @@
 								<option selected value="@Model.cla_menupapa">Selecciona una opción</option>
 								@foreach (var menu in ViewBag.menupadre)
 								{
-		<option value="@menu.cla_menu">@menu.Menu</option>}
+								<option value="@menu.cla_menu">@menu.Menu</option>
+}
 						</select>
 				</div>
 				<div class="info">
@@ -40,7 +41,8 @@
 								<option value="@Model.cla_menu" selected>---------------------</option>
 								@foreach (var menu in ViewBag.subMenus)
 								{
-		<option value="@menu.cla_menu">@menu.Menu</option>}
+								<option value="@menu.cla_menu">@menu.Menu</option>
+}
 						</select>
 				</div>
 		</div>
@@ -51,37 +53,41 @@
 
 								@if (Model.publicar == "SI")
 								{
-		<option value="SI" selected>SI</option> }
+								<option value="SI" selected>SI</option>
+ }
 								else
 								{
-		<option value="SI">SI</option>}
+								<option value="SI">SI</option>
+}
 								@if (Model.publicar == "NO")
 								{
-		<option value="NO" selected>NO</option> }
+								<option value="NO" selected>NO</option>
+ }
 								else
 								{
-		<option value="NO">NO</option>}
+								<option value="NO">NO</option>
+}
 						</select>
 				</div>
 				<div class="info">
 						<label>Fecha de Publicación	</label>
 						<input type="datetime" name="fecha_publicacion" id="fecha_publicacion" class="textito"
-									 placeholder="DD/MM/AAAA" value=@Model.fecha_publicacion>
+									 placeholder="DD/MM/AAAA" asp-for=@Model.fecha_publicacion>
 				</div>
 				<div class="info">
 						<label>Hora de Publicación</label>
-						<input type="time" name="hora_publicacion" id="hora_publicacion" class="textito" placeholder="09:00" value=@Model.hora_publicacion>
+						<input type="time" name="hora_publicacion" id="hora_publicacion" class="textito" placeholder="09:00" asp-for=@Model.hora_publicacion>
 				</div>
 				<div class="info">
 						<label>Fecha de actualización</label>
-						<input type="datetime" name="fecha_actualizacion" id="fecha_actualizacion" placeholder="DD/MM/AAAA" class="textito" value=@Model.fecha_actualizacion>
+						<input type="datetime" name="fecha_actualizacion" id="fecha_actualizacion" placeholder="DD/MM/AAAA" class="textito" asp-for=@Model.fecha_actualizacion>
 				</div>
 				<div class="info">
 						<label>Fuente de Información</label>
-						<input type="text" name="fuentepublica" id="fuente_publicacion" class="textito" value=@Model.fuente_publicacion>
+						<input type="text" name="fuentepublica" id="fuente_publicacion" class="textito" asp-for=@Model.fuente_publicacion>
 				</div>
 		</div>
-		<input type="submit" value="Modificar página" name="Modificiar" id="Modificar" class="btn btn-dark">
+		<input type="submit" asp-for="Modificar página" name="Modificiar" id="Modificar" class="btn btn-dark">
 </form>
 @section scripts {
 
@@ -124,5 +130,27 @@
 				});
 		</script>
 
-
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+		<script>
+				$.alert("La fecha de actualización se modificará automáticamente a la fecha de hoy si se actualiza")
+		</script>
+		<script>
+				$('input[type=submit]').confirm({
+						title: 'Advertencia',
+						content: 'La fecha de actualización se modificará automáticamente a la fecha de hoy ¿Está seguro de querer proceder?',
+						buttons: {
+								Cancelar: function () {
+										//Nada
+								},
+								Ok!: {
+										text: 'Ok!',
+										btnClass: 'btn-confirm',
+										keys: ['enter', 'shift'],
+										action: function () {
+												$('#fecha_actualizacion').val(new Date().toDateInputValue());
+										}
+								}
+						}
+				});
+		</script>
 }

@@ -25,7 +25,7 @@
 								<option value="-1">Selecciona una opción</option>
 								@foreach (var menu in ViewBag.menupadre)
 								{
-										<option value="@menu.cla_menu">@menu.Menu</option>
+								<option value="@menu.cla_menu">@menu.Menu</option>
 								}
 						</select>
 				</div>
@@ -104,7 +104,7 @@
 				$(document).on('change', '#cla_menu', function (event) {
 						$('input[type=submit]').removeAttr("disabled");
 				});
-				</script>
+		</script>
 
 		<script>
 				$(document).ready(function () {
@@ -122,4 +122,10 @@
 						});
 				});
 		</script>
+		<script>
+				$(document).ready(function () {
+						$('#fecha_actualizacion').val(new Date().toDateInputValue());
+				});
+		</script>
+
 }
