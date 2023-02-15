@@ -12,6 +12,8 @@
 		--lett-color-alert: #ff0000;
 		--bg-color-btn-login: #163072;
 		--bg-color-btn-login-active: #cfe2f3;
+		--bg-color-op-navbar-hover: #cbd3da;
+		--bg-color-op-navbar-click: #636970;
 }
 
 
@@ -50,6 +52,7 @@
 .navbar-light .navbar-nav .nav-link {
 		height: 100%;
 		padding: 1rem;
+		border-radius:5px;
 }
 
 li .nav-item {
@@ -57,8 +60,14 @@ li .nav-item {
 }
 
 .navbar-light .navbar-nav .nav-link:hover {
-		background-color: orange;
+		background-color: var(--bg-color-op-navbar-hover);
 		border-radius: 5px;
+}
+
+.navbar-light .navbar-nav .nav-link:focus {
+		background-color: var(--bg-color-op-navbar-click);
+		border-radius: 5px;
+		color:white!important;
 }
 
 .navbar-expand-lg .navbar-nav {
@@ -371,6 +380,14 @@ select.textito {
 		margin-left: 0rem;
 }
 
+input#cla_menu, #cla_papa {
+		border:none;
+}
+
+#Desc_Larga, #link {
+		width: 100%;
+}
+
 .add-new-page {
 		margin-top: 1rem;
 		position: relative;
@@ -383,6 +400,10 @@ input[type="time" i] {
 
 input[type="datetime-local" i] {
 		width: fit-content!important;
+}
+
+input[type="submit"] {
+		width:100%!important;
 }
 
 select {
@@ -417,12 +438,14 @@ h4 .alert {
 .imgBck {
 		position: absolute;
 		z-index: -1;
+		height:100%;
 }
 
 .logo-trans {
 		max-width: 100%;
 		height: auto;
 		box-sizing: border-box;
+		margin-top:7rem;
 }
 /*Sección de conenido nueva*/
 textarea {
@@ -452,7 +475,7 @@ textarea {
 .loading {
 		position: fixed;
 		left: 0px;
-		top: 4rem;
+		top: 5rem;
 		width: 100%;
 		height: 100%;
 		z-index: 9999;
