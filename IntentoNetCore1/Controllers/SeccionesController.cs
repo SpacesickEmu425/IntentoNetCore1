@@ -1,4 +1,5 @@
 ﻿using IntentoNetCore1.Models.DB;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -21,6 +22,7 @@ namespace IntentoNetCore1.Controllers
 						dB = _db;
 				}
 				//TABLAS DE REGISTROS
+				[Authorize(Roles = "administrador")]
 				public IActionResult TodasPag(/*int option = 0*/)
 				{
 						//if (option != 0)
@@ -33,6 +35,7 @@ namespace IntentoNetCore1.Controllers
 						List<Paginas> paginas = dB.Paginas.ToList();//Hace una consulta a la tabla Menus de la base de datos y la guarda en la clase (tipo lista) Menu
 						return View(paginas);
 				}
+				[Authorize (Roles = "administrador")]
 				public IActionResult AdministradorMenus(int option = 0)
 				{
 						//if (option != 0) {
@@ -54,7 +57,7 @@ namespace IntentoNetCore1.Controllers
 						List<Contenido> cont = dB.Contenido.Skip(option).Take(10).ToList();//Por alguna razón no trae toda la lista de los contenidos entera, solo jala los primero 10 en este caso
 						return View(cont);
 				}
-
+				[Authorize(Roles = "administrador")]
 				public IActionResult ContenidosPagina(int cla_pag)
 				{
 						List<Contenido> contenidos = dB.Contenido.Where(m => m.Cla_pag == cla_pag).ToList();
@@ -67,7 +70,7 @@ namespace IntentoNetCore1.Controllers
 						List<Paginas> paginashuer = dB.Paginas.Where(m => m.cla_menu == cla_menu).ToList();//Hace una consulta a la tabla Menus de la base de datos y la guarda en la clase (tipo lista) Menu
 						return View(paginashuer);
 				}
-
+				[Authorize(Roles = "administrador")]        
 				//Sección AGREGAR
 				public IActionResult AgregarMenuNuevo()//Es el número de registros de la tabla menús +1
 				{
@@ -75,6 +78,7 @@ namespace IntentoNetCore1.Controllers
 						menu.menus = dB.Menus.ToList();
 						return View(menu);
 				}
+				[Authorize(Roles = "administrador")]
 				public IActionResult AgregarSubMenuNuevo(int cla_menu)
 				{
 						MenuNuevo submenu = new MenuNuevo();
@@ -83,6 +87,7 @@ namespace IntentoNetCore1.Controllers
 						submenu.menu.cla_papa = cla_menu;
 						return View(submenu);
 				}
+				[Authorize(Roles = "administrador")]
 				public IActionResult AgregarSeccionContenidoNueva(int cla_pag)
 				{
 						ContenidoNuevo cont = new ContenidoNuevo();
@@ -95,6 +100,7 @@ namespace IntentoNetCore1.Controllers
 						cont.contenido.ID_Contenido = lista.Count() + 1;
 						return View(cont);
 				}
+				[Authorize(Roles = "administrador")]
 				public IActionResult PagNueva()
 				{
 						Paginas pagina = new Paginas();
@@ -113,12 +119,13 @@ namespace IntentoNetCore1.Controllers
 						}).ToList();
 						return new JsonResult(menus_hijos);
 				}
+				[Authorize(Roles = "administrador")]
 				public IActionResult BorrarMenu(int cla_menu)//Recibe la clave del menú
 				{
 						Menus menu = dB.Menus.Where(menu => menu.cla_menu == cla_menu).FirstOrDefault();
 						return View(menu);
 				}
-
+				[Authorize(Roles = "administrador")]
 				public IActionResult ComprobarSubmenus(int cla_menu)
 				{
 						List<Menus> menus_hijos = dB.Menus.Where(m => m.cla_papa == cla_menu).ToList();
@@ -134,12 +141,13 @@ namespace IntentoNetCore1.Controllers
 								return RedirectToAction ("BorrarMenu","Secciones", new { cla_menu = menu.cla_menu });
 						}
 				}
-
+				[Authorize(Roles = "administrador")]
 				public IActionResult BorrarSeccionContenido(int ID_Contenido)//Recibe la clave del contenido a modificar
 				{
 						Contenido contenido = dB.Contenido.Where(m => m.ID_Contenido == ID_Contenido).FirstOrDefault();
 						return View(contenido);
 				}
+				[Authorize(Roles = "administrador")]
 				public IActionResult BorrPag(int cla_pag)//Recibe la clave de la página a modificar
 				{
 						Paginas miPagina = dB.Paginas.Where(m => m.cla_pag == cla_pag).FirstOrDefault();
@@ -148,24 +156,27 @@ namespace IntentoNetCore1.Controllers
 						return View(miPagina);
 				}
 				//Sección MODIFICAR
+				[Authorize(Roles = "administrador")]
 				public IActionResult ModificarMenu(int cla_menu)//Recibe la clave del menú
 				{
 						Menus menu = dB.Menus.Where(menu => menu.cla_menu == cla_menu).FirstOrDefault();//
 						return View(menu);
 				}
+				[Authorize(Roles = "administrador")]
 				public IActionResult ModificarSeccionContenido(int ID_Contenido)//Recibe la clave del contenido a modificar
 				{
 						Contenido contenido = dB.Contenido.Where(m => m.ID_Contenido == ID_Contenido).FirstOrDefault();
 
 						return View(contenido);
 				}
+				[Authorize(Roles = "administrador")]
 				public IActionResult ModificarHtmlContenido(int ID_Contenido)//Recibe la clave del contenido a modificar
 				{
 						Contenido contenido = dB.Contenido.Where(m => m.ID_Contenido == ID_Contenido).FirstOrDefault();
 
 						return View(contenido);
 				}
-
+				[Authorize(Roles = "administrador")]
 				public IActionResult ModPag(int cla_pag)//Recibe la clave de la página a modificar
 				{
 						Paginas datos = new Paginas();
@@ -305,6 +316,5 @@ namespace IntentoNetCore1.Controllers
 						dB.SaveChanges();
 						return RedirectToAction("TodasPag", "Secciones");
 				}
-
 		}
 }
